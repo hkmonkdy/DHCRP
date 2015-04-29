@@ -2,10 +2,22 @@ exports.step1 = function(req, res){
   res.render('../views/application-employer');
 };
 
-exports.step2 = function(req, res){
+exports.step1Next = function(req, res){
   res.render('../views/application-helper');
 };
 
-exports.step3 = function(req, res){
+exports.step2Next = function(req, res){
   res.render('../views/application-document');
+};
+
+exports.step2Previous = function(req, res){
+  res.render('../views/application-employer');
+};
+
+exports.step3Next = function(req, res){
+  res.render('../views/application-confirmation');
+};
+
+exports.step3Previous = function(req, res){
+  res.render('../views/application-helper');
 };

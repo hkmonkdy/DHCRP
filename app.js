@@ -8,7 +8,7 @@ var routeIndex = require('./routes/index');
 var routeApplication = require('./routes/application');
 
 var app = module.exports = express();
-app.set('port', process.env.PORT || 3001);
+app.set('port', process.env.PORT || 3000);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -49,6 +49,10 @@ var server = app.listen(app.get('port'), function(){
 });
 
 app.use('/application-step1', routeApplication.step1);
-app.use('/application-step2', routeApplication.step2);
-app.use('/application-step3', routeApplication.step3);
+app.post('/application-step1-next', routeApplication.step1Next);
+app.post('/application-step2-next', routeApplication.step2Next);
+app.post('/application-step2-previous', routeApplication.step2Previous);
+app.post('/application-step3-next', routeApplication.step3Next);
+app.post('/application-step3-previous', routeApplication.step3Previous);
+
 app.use('/', routeIndex.index);

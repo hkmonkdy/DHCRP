@@ -33,15 +33,15 @@
 							<h3>步驟一 > 僱主資料</h3>
 							<p>請以英文填寫全部資料</p>
 							
-							<form class="form-horizontal">
+							<form class="form-horizontal" action="/application-step1-next" method="post">
 								<fieldset>
 									<!-- Form Name -->
 									<legend>基本資料</legend>
 
 									<!-- Text input-->
 									<div class="form-group">
-									  <label class="col-md-4 control-label" for="firstName">姓名(英)</label>  
-									  <div class="col-md-4">
+									  <label class="col-md-2 control-label" for="firstName">姓名(英)</label>  
+									  <div class="col-md-2">
 									  <input id="firstName" name="firstName" type="text" placeholder="名" class="form-control input-md" required="">
 										
 									  </div>
@@ -50,20 +50,27 @@
 									  <input id="lastName" name="lastName" type="text" placeholder="姓" class="form-control input-md" required="">
 										
 									  </div>
-									</div>
-
-									<!-- Text input-->
-									<div class="form-group">
-									  <label class="col-md-4 control-label" for="chineseName">姓名(中)</label>  
-									  <div class="col-md-5">
+									  
+									  <label class="col-md-2 control-label" for="chineseName">姓名(中)</label>  
+									  <div class="col-md-3">
 									  <input id="chineseName" name="chineseName" type="text" placeholder="" class="form-control input-md">
 										
 									  </div>
 									</div>
 
-									<!-- Multiple Radios (inline) -->
+									<!-- Text input-->
 									<div class="form-group">
-									  <label class="col-md-4 control-label" for="gender">性別</label>
+									  
+									</div>
+
+									<div class="form-group">
+									  <label class="col-md-2 control-label" for="DOB">出生日期</label>  
+									  <div class="col-md-4">
+									  <input id="DOB" name="DOB" type="text" placeholder="" class="form-control input-md">
+										
+									  </div>
+									
+									  <label class="col-md-2 control-label" for="gender">性別</label>
 									  <div class="col-md-4"> 
 										<label class="radio-inline" for="gender-0">
 										  <input type="radio" name="gender" id="gender-0" value="M" checked="checked">
@@ -76,18 +83,8 @@
 									  </div>
 									</div>
 
-									<!-- Text input-->
 									<div class="form-group">
-									  <label class="col-md-4 control-label" for="DOB">出生日期</label>  
-									  <div class="col-md-5">
-									  <input id="DOB" name="DOB" type="text" placeholder="" class="form-control input-md">
-										
-									  </div>
-									</div>
-
-									<!-- Multiple Radios (inline) -->
-									<div class="form-group">
-									  <label class="col-md-4 control-label" for="hasHKID">擁有香港身份証</label>
+									  <label class="col-md-2 control-label" for="hasHKID">持有身份証</label>
 									  <div class="col-md-4"> 
 										<label class="radio-inline" for="hasHKID-0">
 										  <input type="radio" name="hasHKID" id="hasHKID-0" value="Y" checked="checked">
@@ -100,37 +97,29 @@
 									  </div>
 									</div>
 
-									<!-- Text input-->
 									<div class="form-group">
-									  <label class="col-md-4 control-label" for="HKID">香港身份證號碼</label>  
-									  <div class="col-md-5">
+									  <label class="col-md-2 control-label" for="HKID">身份證號碼</label>  
+									  <div class="col-md-4">
 									  <input id="HKID" name="HKID" type="text" placeholder="" class="form-control input-md" required="">
 										
 									  </div>
-									</div>
-
-									<!-- Text input-->
-									<div class="form-group">
-									  <label class="col-md-4 control-label" for="passportNumber">旅行證件號碼</label>  
-									  <div class="col-md-5">
+									  
+									  <label class="col-md-2 control-label" for="passportNumber">旅行證件號碼</label>  
+									  <div class="col-md-4">
 									  <input id="passportNumber" name="passportNumber" type="text" placeholder="" class="form-control input-md" required="">
 										
 									  </div>
 									</div>
 
-									<!-- Text input-->
 									<div class="form-group">
-									  <label class="col-md-4 control-label" for="nationality">國籍</label>  
-									  <div class="col-md-5">
+									  <label class="col-md-2 control-label" for="nationality">國籍</label>  
+									  <div class="col-md-4">
 									  <input id="nationality" name="nationality" type="text" placeholder="" class="form-control input-md">
 										
 									  </div>
-									</div>
-
-									<!-- Text input-->
-									<div class="form-group">
-									  <label class="col-md-4 control-label" for="occupation">職業</label>  
-									  <div class="col-md-5">
+									  
+									  <label class="col-md-2 control-label" for="occupation">職業</label>  
+									  <div class="col-md-4">
 									  <input id="occupation" name="occupation" type="text" placeholder="" class="form-control input-md">
 										
 									  </div>
@@ -138,8 +127,8 @@
 
 									<!-- Text input-->
 									<div class="form-group">
-									  <label class="col-md-4 control-label" for="address1">地址</label>  
-									  <div class="col-md-8">
+									  <label class="col-md-2 control-label" for="address1">地址</label>  
+									  <div class="col-md-10">
 									  <input id="address1" name="address1" type="text" placeholder="地址 1" class="form-control input-md">
 										
 									  </div>
@@ -147,8 +136,8 @@
 
 									<!-- Text input-->
 									<div class="form-group">
-									  <label class="col-md-4 control-label" for="address2"></label>  
-									  <div class="col-md-8">
+									  <label class="col-md-2 control-label" for="address2"></label>  
+									  <div class="col-md-10">
 									  <input id="address2" name="address2" type="text" placeholder="地址 2" class="form-control input-md">
 										
 									  </div>
@@ -156,17 +145,14 @@
 
 									<!-- Text input-->
 									<div class="form-group">
-									  <label class="col-md-4 control-label" for="contactNumber">聯絡電話號碼</label>  
-									  <div class="col-md-5">
+									  <label class="col-md-2 control-label" for="contactNumber">聯絡電話號碼</label>  
+									  <div class="col-md-4">
 									  <input id="contactNumber" name="contactNumber" type="text" placeholder="" class="form-control input-md" required="">
 										
 									  </div>
-									</div>
-
-									<!-- Text input-->
-									<div class="form-group">
-									  <label class="col-md-4 control-label" for="homeNumber">住宅電話號碼</label>  
-									  <div class="col-md-5">
+									  
+									  <label class="col-md-2 control-label" for="homeNumber">住宅電話號碼</label>  
+									  <div class="col-md-4">
 									  <input id="homeNumber" name="homeNumber" type="text" placeholder="" class="form-control input-md">
 										
 									  </div>
@@ -174,76 +160,21 @@
 
 									<!-- Text input-->
 									<div class="form-group">
-									  <label class="col-md-4 control-label" for="email">電郵地址</label>  
-									  <div class="col-md-5">
+									  <label class="col-md-2 control-label" for="email">電郵地址</label>  
+									  <div class="col-md-4">
 									  <input id="email" name="email" type="text" placeholder="" class="form-control input-md" required="">
 										
 									  </div>
 									</div>
-								</fieldset>
+								</fieldset><br/>
 								
 								<fieldset>
 									<!-- Form Name -->
 									<legend>住戶資料</legend>
-
-									<!-- Text input-->
+									
 									<div class="form-group">
-									  <label class="col-md-4 control-label" for="numOfAdult">成人數目</label>  
-									  <div class="col-md-4">
-									  <input id="numOfAdult" name="numOfAdult" type="text" placeholder="" class="form-control input-md">
-										
-									  </div>
-									</div>
-
-									<!-- Text input-->
-									<div class="form-group">
-									  <label class="col-md-4 control-label" for="numOfChild">小童數目(5-18歲)</label>  
-									  <div class="col-md-4">
-									  <input id="numOfChild" name="numOfChild" type="text" placeholder="" class="form-control input-md">
-										
-									  </div>
-									</div>
-
-									<!-- Text input-->
-									<div class="form-group">
-									  <label class="col-md-4 control-label" for="numOfBaby">小童數目(0~5歲)</label>  
-									  <div class="col-md-4">
-									  <input id="numOfBaby" name="numOfBaby" type="text" placeholder="" class="form-control input-md">
-										
-									  </div>
-									</div>
-
-									<!-- Text input-->
-									<div class="form-group">
-									  <label class="col-md-4 control-label" for="numOfPreBorn">預產嬰兒數目</label>  
-									  <div class="col-md-4">
-									  <input id="numOfPreBorn" name="numOfPreBorn" type="text" placeholder="" class="form-control input-md">
-										
-									  </div>
-									</div>
-
-									<!-- Text input-->
-									<div class="form-group">
-									  <label class="col-md-4 control-label" for="numOfFamily">家庭成員總數</label>  
-									  <div class="col-md-4">
-									  <input id="numOfFamily" name="numOfFamily" type="text" placeholder="" class="form-control input-md">
-										
-									  </div>
-									</div>
-
-									<!-- Text input-->
-									<div class="form-group">
-									  <label class="col-md-4 control-label" for="numOfSpecialCare">其中特別照顧人士數目</label>  
-									  <div class="col-md-4">
-									  <input id="numOfSpecialCare" name="numOfSpecialCare" type="text" placeholder="" class="form-control input-md">
-										
-									  </div>
-									</div>
-
-									<!-- Multiple Radios (inline) -->
-									<div class="form-group">
-									  <label class="col-md-4 control-label" for="isEmployerSameAdd">僱主是否居住在合約地址</label>
-									  <div class="col-md-4"> 
+									  <label class="col-md-3 control-label" for="isEmployerSameAdd">您是否居住在合約地址</label>
+									  <div class="col-md-3"> 
 										<label class="radio-inline" for="isEmployerSameAdd-0">
 										  <input type="radio" name="isEmployerSameAdd" id="isEmployerSameAdd-0" value="Y" checked="checked">
 										  是
@@ -253,59 +184,159 @@
 										  否
 										</label>
 									  </div>
-									</div>
-
-									<!-- Text input-->
-									<div class="form-group">
-									  <label class="col-md-4 control-label" for="numOfMaid">你及/或上列人士現時僱用的家庭傭工總共</label>  
-									  <div class="col-md-4">
-									  <input id="numOfMaid" name="numOfMaid" type="text" placeholder="" class="form-control input-md">
-										
-									  </div>
-									</div>
-
-									<!-- Text input-->
-									<div class="form-group">
-									  <label class="col-md-4 control-label" for="houseHoldIncome">每月住戶入息</label>  
+									  
+									  <label class="col-md-2 control-label" for="houseHoldIncome">每月家庭入息</label>  
 									  <div class="col-md-4">
 									  <input id="houseHoldIncome" name="houseHoldIncome" type="text" placeholder="HKD" class="form-control input-md">
 										
 									  </div>
 									</div>
 
-									<!-- Select Basic -->
 									<div class="form-group">
-									  <label class="col-md-4 control-label" for="apartmentType">住宅類型</label>
+									  <label class="col-md-2 control-label" for="numOfAdult">成人數目</label>  
+									  <div class="col-md-1">
+									  <input id="numOfAdult" name="numOfAdult" type="text" placeholder="" class="form-control input-md">
+										
+									  </div>
+									  
+									  <label class="col-md-3 control-label" for="numOfChild">小童數目(5-18歲)</label>  
+									  <div class="col-md-1">
+									  <input id="numOfChild" name="numOfChild" type="text" placeholder="" class="form-control input-md">
+										
+									  </div>
+									  
+									  <label class="col-md-3 control-label" for="numOfBaby">小童數目(0~5歲)</label>  
+									  <div class="col-md-1">
+									  <input id="numOfBaby" name="numOfBaby" type="text" placeholder="" class="form-control input-md">
+										
+									  </div>
+									</div>
+
+									<div class="form-group">
+									  <label class="col-md-2 control-label" for="numOfPreBorn">預產嬰兒數目</label>  
+									  <div class="col-md-1">
+									  <input id="numOfPreBorn" name="numOfPreBorn" type="text" placeholder="" class="form-control input-md">
+										
+									  </div>
+									  
+									  <label class="col-md-3 control-label" for="numOfFamily">家庭成員總數</label>  
+									  <div class="col-md-1">
+									  <input id="numOfFamily" name="numOfFamily" type="text" placeholder="" class="form-control input-md">
+										
+									  </div>
+									  
+									  <label class="col-md-3 control-label" for="numOfSpecialCare">其中特別照顧人士數目</label>  
+									  <div class="col-md-1">
+									  <input id="numOfSpecialCare" name="numOfSpecialCare" type="text" placeholder="" class="form-control input-md">
+										
+									  </div>
+									</div><br/>
+									
+									<table>
+										<thead>
+											<tr>
+												<th>住戶姓名(英)</th>
+												<th>出生年份</th>
+												<th>關係</th>
+												<th>身份證號碼</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td><input id="familyName" name="numOfSpecialCare" type="text" placeholder="" class="form-control input-md"></td>
+												<td><input id="familyName" name="numOfSpecialCare" type="text" placeholder="" class="form-control input-md"></td>
+												<td><input id="familyName" name="numOfSpecialCare" type="text" placeholder="" class="form-control input-md"></td>
+												<td><input id="familyName" name="numOfSpecialCare" type="text" placeholder="" class="form-control input-md"></td>
+											</tr>
+											<tr>
+												<td><input id="familyName" name="numOfSpecialCare" type="text" placeholder="" class="form-control input-md"></td>
+												<td><input id="familyName" name="numOfSpecialCare" type="text" placeholder="" class="form-control input-md"></td>
+												<td><input id="familyName" name="numOfSpecialCare" type="text" placeholder="" class="form-control input-md"></td>
+												<td><input id="familyName" name="numOfSpecialCare" type="text" placeholder="" class="form-control input-md"></td>
+											</tr>
+											<tr>
+												<td><input id="familyName" name="numOfSpecialCare" type="text" placeholder="" class="form-control input-md"></td>
+												<td><input id="familyName" name="numOfSpecialCare" type="text" placeholder="" class="form-control input-md"></td>
+												<td><input id="familyName" name="numOfSpecialCare" type="text" placeholder="" class="form-control input-md"></td>
+												<td><input id="familyName" name="numOfSpecialCare" type="text" placeholder="" class="form-control input-md"></td>
+											</tr>
+										</tbody>
+									</table>
+								</fieldset><br/>
+
+								<fieldset>
+									<!-- Form Name -->
+									<legend>現時僱用家傭資料</legend>
+									
+									<div class="form-group">
+									  <label class="col-md-4 control-label" for="numOfMaid">現時僱用家傭總數</label>  
 									  <div class="col-md-4">
+									  <input id="numOfMaid" name="numOfMaid" type="text" placeholder="" class="form-control input-md">
+										
+									  </div>
+									</div><br/>
+									
+									<table>
+										<thead>
+											<tr>
+												<th>家傭姓名(英)</th>
+												<th>身份證號碼</th>
+												<th>工作証到期日</th>
+												<th>僱主姓名(英)</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td><input id="familyName" name="numOfSpecialCare" type="text" placeholder="" class="form-control input-md"></td>
+												<td><input id="familyName" name="numOfSpecialCare" type="text" placeholder="" class="form-control input-md"></td>
+												<td><input id="familyName" name="numOfSpecialCare" type="text" placeholder="" class="form-control input-md"></td>
+												<td><input id="familyName" name="numOfSpecialCare" type="text" placeholder="" class="form-control input-md"></td>
+											</tr>
+											<tr>
+												<td><input id="familyName" name="numOfSpecialCare" type="text" placeholder="" class="form-control input-md"></td>
+												<td><input id="familyName" name="numOfSpecialCare" type="text" placeholder="" class="form-control input-md"></td>
+												<td><input id="familyName" name="numOfSpecialCare" type="text" placeholder="" class="form-control input-md"></td>
+												<td><input id="familyName" name="numOfSpecialCare" type="text" placeholder="" class="form-control input-md"></td>
+											</tr>
+											<tr>
+												<td><input id="familyName" name="numOfSpecialCare" type="text" placeholder="" class="form-control input-md"></td>
+												<td><input id="familyName" name="numOfSpecialCare" type="text" placeholder="" class="form-control input-md"></td>
+												<td><input id="familyName" name="numOfSpecialCare" type="text" placeholder="" class="form-control input-md"></td>
+												<td><input id="familyName" name="numOfSpecialCare" type="text" placeholder="" class="form-control input-md"></td>
+											</tr>
+										</tbody>
+									</table>
+								</fieldset><br/>
+
+								<fieldset>
+									<!-- Form Name -->
+									<legend>住宅資料</legend>
+									
+									<div class="form-group">
+									  <label class="col-md-2 control-label" for="apartmentType">住宅類型</label>
+									  <div class="col-md-2">
 										<select id="apartmentType" name="apartmentType" class="form-control">
 										  <option value="1">Option one</option>
 										  <option value="2">Option two</option>
 										</select>
 									  </div>
-									</div>
-
-									<!-- Text input-->
-									<div class="form-group">
-									  <label class="col-md-4 control-label" for="area">住宅面積</label>  
-									  <div class="col-md-4">
+									  
+									  <label class="col-md-2 control-label" for="area">住宅面積</label>  
+									  <div class="col-md-2">
 									  <input id="area" name="area" type="text" placeholder="平方尺" class="form-control input-md">
 										
 									  </div>
-									</div>
-
-									<!-- Text input-->
-									<div class="form-group">
-									  <label class="col-md-4 control-label" for="numOfRoom">睡房總數目</label>  
-									  <div class="col-md-4">
+									  
+									  <label class="col-md-2 control-label" for="numOfRoom">睡房總數目</label>  
+									  <div class="col-md-2">
 									  <input id="numOfRoom" name="numOfRoom" type="text" placeholder="" class="form-control input-md">
 										
 									  </div>
 									</div>
 
-									<!-- Multiple Radios (inline) -->
 									<div class="form-group">
-									  <label class="col-md-4 control-label" for="isInidividualRoom">獨立工人房間</label>
-									  <div class="col-md-4"> 
+									  <label class="col-md-2 control-label" for="isInidividualRoom">獨立工人房間</label>
+									  <div class="col-md-2"> 
 										<label class="radio-inline" for="isInidividualRoom-0">
 										  <input type="radio" name="isInidividualRoom" id="isInidividualRoom-0" value="Y" checked="checked">
 										  是
@@ -315,22 +346,19 @@
 										  否
 										</label>
 									  </div>
-									</div>
-
-									<!-- Text input-->
-									<div class="form-group">
-									  <label class="col-md-4 control-label" for="maidRoomArea">工人房間面積</label>  
-									  <div class="col-md-4">
+									  
+									  <label class="col-md-2 control-label" for="maidRoomArea">工人房間面積</label>  
+									  <div class="col-md-2">
 									  <input id="maidRoomArea" name="maidRoomArea" type="text" placeholder="平方尺" class="form-control input-md">
 										
 									  </div>
 									</div>
-								</fieldset>
+								</fieldset><br/><br/>
 								
 								<div class="row uniform">
 									<div class="12u">
 										<ul class="actions">
-											<li><input type="button" class="special" value="下一步" onclick="parent.location='/application-step2'"/></li>
+											<li><input type="submit" class="special" value="下一步"/></li>
 										</ul>
 									</div>
 								</div>
