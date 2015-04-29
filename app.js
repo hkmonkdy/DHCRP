@@ -4,7 +4,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var routes = require('./routes/index');
+var routeIndex = require('./routes/index');
+var routeApplication = require('./routes/application');
 
 var app = module.exports = express();
 app.set('port', process.env.PORT || 3000);
@@ -47,9 +48,7 @@ var server = app.listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
 
-//app.post('/searchResources', routes.searchResources);
-//app.post('/createResourceWithoutUUID', routes.createResourceWithoutUUID);
-//app.post('/registerResourceAccess', routes.registerResourceAccess);
-//app.post('/verifyAvailableResource', routes.verifyAvailableResource);
-//app.get('/userResource/:userName', routes.searchUserResourceByURL);
-app.use('/', routes.index);
+app.use('/application-step1', routeApplication.step1);
+app.use('/application-step2', routeApplication.step2);
+app.use('/application-step3', routeApplication.step3);
+app.use('/', routeIndex.index);

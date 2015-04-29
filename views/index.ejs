@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Read Only by HTML5 UP</title>
+		<title>家庭傭工續約平台 (DHCMP)</title>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
@@ -26,8 +26,8 @@
 				<section id="header" class="skel-layers-fixed">
 					<header>
 						<span class="image avatar"><img src="/images/avatar.jpg" alt="" /></span>
-						<h1 id="logo"><a href="#">DHCRP</a></h1>
-						<p>家庭傭工續約平台</p>
+						<h1 id="logo"><a href="#">家庭傭工續約平台</a></h1>
+						
 					</header>
 					<nav id="nav">
 						<ul>
@@ -35,7 +35,8 @@
 							<li><a href="#two">申請程序</a></li>
 							<li><a href="#three">申請費用</a></li>
 							<li><a href="#four">所需文件</a></li>
-							<li><a href="#five">聯絡我們</a></li>
+							<li><a href="#five">進度查詢</a></li>
+							<li><a href="#six">聯絡我們</a></li>
 						</ul>
 					</nav>
 					<footer>
@@ -65,8 +66,8 @@
 								<div class="row uniform">
 									<div class="12u">
 										<ul class="actions">
-											<li><input type="button" class="special" value="立即辦理" /></li>
-											<li><input type="reset" value="進度查詢" /></li>
+											<li><input type="button" class="special" value="立即辦理" onclick="parent.location='/application-step1'"/></li>
+											<li><input type="reset" value="進度查詢" onclick="parent.location='#five'"/></li>
 										</ul>
 									</div>
 								</div>
@@ -165,6 +166,27 @@
 						
 					<!-- Five -->
 						<section id="five">
+							<div class="container">
+								<h3>進度查詢</h3>
+								<form method="post" action="#">
+									<div class="row uniform collapse-at-2">
+										<div class="5u"><input type="text" name="name" id="name" placeholder="僱主香港身份証號碼" /></div>
+										<div class="1u" style="text-align: center;"><h4>或</h4></div>
+										<div class="5u"><input type="email" name="email" id="email" placeholder="傭工香港身份証號碼" /></div>
+									</div>
+									<div class="row uniform">
+										<div class="12u">
+											<ul class="actions">
+												<li><input type="submit" class="special" value="查詢" /></li>
+											</ul>
+										</div>
+									</div>
+								</form>
+							</div>
+						</section>
+						
+					<!-- Six -->
+						<section id="six">
 							<div class="container">
 								<h3>聯絡我們</h3>
 								<p>Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer non. Adipiscing cubilia elementum integer. Integer eu ante ornare amet commetus.</p>
