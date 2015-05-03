@@ -3,27 +3,14 @@
 	<head>
 		<title>家庭傭工續約平台 > 辦理續約 > 僱主資料</title>
 		
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
-		
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
-		<!--[if lte IE 8]><script src="/css/ie/html5shiv.js"></script><![endif]-->
-		<script src="/js/jquery.min.js"></script>
-		<script src="/js/jquery.scrollzer.min.js"></script>
-		<script src="/js/jquery.scrolly.min.js"></script>
-		<script src="/js/skel.min.js"></script>
-		<script src="/js/skel-layers.min.js"></script>
-		<script src="/js/init.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 		
-		<noscript>
-			<link rel="stylesheet" href="/css/skel.css" />
-			<link rel="stylesheet" href="/css/style.css" />
-			<link rel="stylesheet" href="/css/style-xlarge.css" />
-		</noscript>
-		<!--[if lte IE 8]><link rel="stylesheet" href="/css/ie/v8.css" /><![endif]-->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+		
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 	</head>
 	<body>
 			<!-- Main -->
@@ -47,7 +34,7 @@
 									  </div>
 									  
 									  <div class="col-md-2">
-									  <input id="lastName" name="lastName" type="text" placeholder="姓" class="form-control input-md" required="">
+									  <input id="lastName" name="lastName" type="text" placeholder="姓" class="form-control input-md">
 										
 									  </div>
 									  
@@ -87,11 +74,11 @@
 									  <label class="col-md-2 control-label" for="hasHKID">持有身份証</label>
 									  <div class="col-md-4"> 
 										<label class="radio-inline" for="hasHKID-0">
-										  <input type="radio" name="hasHKID" id="hasHKID-0" value="Y" checked="checked">
+										  <input type="radio" name="hasHKID" id="hasHKID-0" value="1" checked="checked">
 										  是
 										</label> 
 										<label class="radio-inline" for="hasHKID-1">
-										  <input type="radio" name="hasHKID" id="hasHKID-1" value="N">
+										  <input type="radio" name="hasHKID" id="hasHKID-1" value="0">
 										  否
 										</label>
 									  </div>
@@ -100,13 +87,13 @@
 									<div class="form-group">
 									  <label class="col-md-2 control-label" for="HKID">身份證號碼</label>  
 									  <div class="col-md-4">
-									  <input id="HKID" name="HKID" type="text" placeholder="" class="form-control input-md" required="">
+									  <input id="HKID" name="HKID" type="text" placeholder="" class="form-control input-md">
 										
 									  </div>
 									  
 									  <label class="col-md-2 control-label" for="passportNumber">旅行證件號碼</label>  
 									  <div class="col-md-4">
-									  <input id="passportNumber" name="passportNumber" type="text" placeholder="" class="form-control input-md" required="">
+									  <input id="passportNumber" name="passportNumber" type="text" placeholder="" class="form-control input-md">
 										
 									  </div>
 									</div>
@@ -147,7 +134,7 @@
 									<div class="form-group">
 									  <label class="col-md-2 control-label" for="contactNumber">聯絡電話號碼</label>  
 									  <div class="col-md-4">
-									  <input id="contactNumber" name="contactNumber" type="text" placeholder="" class="form-control input-md" required="">
+									  <input id="contactNumber" name="contactNumber" type="text" placeholder="" class="form-control input-md">
 										
 									  </div>
 									  
@@ -162,7 +149,7 @@
 									<div class="form-group">
 									  <label class="col-md-2 control-label" for="email">電郵地址</label>  
 									  <div class="col-md-4">
-									  <input id="email" name="email" type="text" placeholder="" class="form-control input-md" required="">
+									  <input id="email" name="email" type="text" placeholder="" class="form-control input-md">
 										
 									  </div>
 									</div>
@@ -176,11 +163,11 @@
 									  <label class="col-md-3 control-label" for="isEmployerSameAdd">您是否居住在合約地址</label>
 									  <div class="col-md-3"> 
 										<label class="radio-inline" for="isEmployerSameAdd-0">
-										  <input type="radio" name="isEmployerSameAdd" id="isEmployerSameAdd-0" value="Y" checked="checked">
+										  <input type="radio" name="isEmployerSameAdd" id="isEmployerSameAdd-0" value="1" checked="checked">
 										  是
 										</label> 
 										<label class="radio-inline" for="isEmployerSameAdd-1">
-										  <input type="radio" name="isEmployerSameAdd" id="isEmployerSameAdd-1" value="N">
+										  <input type="radio" name="isEmployerSameAdd" id="isEmployerSameAdd-1" value="0">
 										  否
 										</label>
 									  </div>
@@ -243,22 +230,22 @@
 										</thead>
 										<tbody>
 											<tr>
-												<td><input id="familyName" name="numOfSpecialCare" type="text" placeholder="" class="form-control input-md"></td>
-												<td><input id="familyName" name="numOfSpecialCare" type="text" placeholder="" class="form-control input-md"></td>
-												<td><input id="familyName" name="numOfSpecialCare" type="text" placeholder="" class="form-control input-md"></td>
-												<td><input id="familyName" name="numOfSpecialCare" type="text" placeholder="" class="form-control input-md"></td>
+												<td><input id="familyMemberOrders" name="familyMemberOrders" type="hidden"/><input id="familyMemberNames" name="familyMemberNames" type="text" placeholder="" class="form-control input-md"/></td>
+												<td><input id="familyMemberBirthYears" name="familyMemberBirthYears" type="text" placeholder="" class="form-control input-md"></td>
+												<td><input id="familyMemberRelationships" name="familyMemberRelationships" type="text" placeholder="" class="form-control input-md"></td>
+												<td><input id="familyMemberHKIDs" name="familyMemberHKIDs" type="text" placeholder="" class="form-control input-md"></td>
 											</tr>
 											<tr>
-												<td><input id="familyName" name="numOfSpecialCare" type="text" placeholder="" class="form-control input-md"></td>
-												<td><input id="familyName" name="numOfSpecialCare" type="text" placeholder="" class="form-control input-md"></td>
-												<td><input id="familyName" name="numOfSpecialCare" type="text" placeholder="" class="form-control input-md"></td>
-												<td><input id="familyName" name="numOfSpecialCare" type="text" placeholder="" class="form-control input-md"></td>
+												<td><input id="familyMemberNames" name="familyMemberNames" type="text" placeholder="" class="form-control input-md"></td>
+												<td><input id="familyMemberBirthYears" name="familyMemberBirthYears" type="text" placeholder="" class="form-control input-md"></td>
+												<td><input id="familyMemberRelationships" name="familyMemberRelationships" type="text" placeholder="" class="form-control input-md"></td>
+												<td><input id="familyMemberHKIDs" name="familyMemberHKIDs" type="text" placeholder="" class="form-control input-md"></td>
 											</tr>
 											<tr>
-												<td><input id="familyName" name="numOfSpecialCare" type="text" placeholder="" class="form-control input-md"></td>
-												<td><input id="familyName" name="numOfSpecialCare" type="text" placeholder="" class="form-control input-md"></td>
-												<td><input id="familyName" name="numOfSpecialCare" type="text" placeholder="" class="form-control input-md"></td>
-												<td><input id="familyName" name="numOfSpecialCare" type="text" placeholder="" class="form-control input-md"></td>
+												<td><input id="familyMemberNames" name="familyMemberNames" type="text" placeholder="" class="form-control input-md"></td>
+												<td><input id="familyMemberBirthYears" name="familyMemberBirthYears" type="text" placeholder="" class="form-control input-md"></td>
+												<td><input id="familyMemberRelationships" name="familyMemberRelationships" type="text" placeholder="" class="form-control input-md"></td>
+												<td><input id="familyMemberHKIDs" name="familyMemberHKIDs" type="text" placeholder="" class="form-control input-md"></td>
 											</tr>
 										</tbody>
 									</table>
@@ -269,9 +256,9 @@
 									<legend>現時僱用家傭資料</legend>
 									
 									<div class="form-group">
-									  <label class="col-md-4 control-label" for="numOfMaid">現時僱用家傭總數</label>  
+									  <label class="col-md-4 control-label" for="numOfDH">現時僱用家傭總數</label>  
 									  <div class="col-md-4">
-									  <input id="numOfMaid" name="numOfMaid" type="text" placeholder="" class="form-control input-md">
+									  <input id="numOfDH" name="numOfDH" type="text" placeholder="" class="form-control input-md">
 										
 									  </div>
 									</div><br/>
@@ -287,22 +274,22 @@
 										</thead>
 										<tbody>
 											<tr>
-												<td><input id="familyName" name="numOfSpecialCare" type="text" placeholder="" class="form-control input-md"></td>
-												<td><input id="familyName" name="numOfSpecialCare" type="text" placeholder="" class="form-control input-md"></td>
-												<td><input id="familyName" name="numOfSpecialCare" type="text" placeholder="" class="form-control input-md"></td>
-												<td><input id="familyName" name="numOfSpecialCare" type="text" placeholder="" class="form-control input-md"></td>
+												<td><input id="employedDHNames" name="employedDHNames" type="text" placeholder="" class="form-control input-md"></td>
+												<td><input id="employedDHHKIDs" name="employedDHHKIDs" type="text" placeholder="" class="form-control input-md"></td>
+												<td><input id="employedDHVISADueDates" name="employedDHVISADueDates" type="text" placeholder="" class="form-control input-md"></td>
+												<td><input id="employedDHEmployerNames" name="employedDHEmployerNames" type="text" placeholder="" class="form-control input-md"></td>
 											</tr>
 											<tr>
-												<td><input id="familyName" name="numOfSpecialCare" type="text" placeholder="" class="form-control input-md"></td>
-												<td><input id="familyName" name="numOfSpecialCare" type="text" placeholder="" class="form-control input-md"></td>
-												<td><input id="familyName" name="numOfSpecialCare" type="text" placeholder="" class="form-control input-md"></td>
-												<td><input id="familyName" name="numOfSpecialCare" type="text" placeholder="" class="form-control input-md"></td>
+												<td><input id="employedDHNames" name="employedDHNames" type="text" placeholder="" class="form-control input-md"></td>
+												<td><input id="employedDHHKIDs" name="employedDHHKIDs" type="text" placeholder="" class="form-control input-md"></td>
+												<td><input id="employedDHVISADueDates" name="employedDHVISADueDates" type="text" placeholder="" class="form-control input-md"></td>
+												<td><input id="employedDHEmployerNames" name="employedDHEmployerNames" type="text" placeholder="" class="form-control input-md"></td>
 											</tr>
 											<tr>
-												<td><input id="familyName" name="numOfSpecialCare" type="text" placeholder="" class="form-control input-md"></td>
-												<td><input id="familyName" name="numOfSpecialCare" type="text" placeholder="" class="form-control input-md"></td>
-												<td><input id="familyName" name="numOfSpecialCare" type="text" placeholder="" class="form-control input-md"></td>
-												<td><input id="familyName" name="numOfSpecialCare" type="text" placeholder="" class="form-control input-md"></td>
+												<td><input id="employedDHNames" name="employedDHNames" type="text" placeholder="" class="form-control input-md"></td>
+												<td><input id="employedDHHKIDs" name="employedDHHKIDs" type="text" placeholder="" class="form-control input-md"></td>
+												<td><input id="employedDHVISADueDates" name="employedDHVISADueDates" type="text" placeholder="" class="form-control input-md"></td>
+												<td><input id="employedDHEmployerNames" name="employedDHEmployerNames" type="text" placeholder="" class="form-control input-md"></td>
 											</tr>
 										</tbody>
 									</table>
@@ -321,9 +308,9 @@
 										</select>
 									  </div>
 									  
-									  <label class="col-md-2 control-label" for="area">住宅面積</label>  
+									  <label class="col-md-2 control-label" for="apartmentArea">住宅面積</label>  
 									  <div class="col-md-2">
-									  <input id="area" name="area" type="text" placeholder="平方尺" class="form-control input-md">
+									  <input id="apartmentArea" name="apartmentArea" type="text" placeholder="平方尺" class="form-control input-md">
 										
 									  </div>
 									  
@@ -335,21 +322,21 @@
 									</div>
 
 									<div class="form-group">
-									  <label class="col-md-2 control-label" for="isInidividualRoom">獨立工人房間</label>
+									  <label class="col-md-2 control-label" for="hasIndividualRoomDH">獨立工人房間</label>
 									  <div class="col-md-2"> 
-										<label class="radio-inline" for="isInidividualRoom-0">
-										  <input type="radio" name="isInidividualRoom" id="isInidividualRoom-0" value="Y" checked="checked">
+										<label class="radio-inline" for="hasIndividualRoomDH-0">
+										  <input type="radio" name="hasIndividualRoomDH" id="hasIndividualRoomDH-0" value="1" checked="checked">
 										  是
 										</label> 
-										<label class="radio-inline" for="isInidividualRoom-1">
-										  <input type="radio" name="isInidividualRoom" id="isInidividualRoom-1" value="N">
+										<label class="radio-inline" for="hasIndividualRoomDH-1">
+										  <input type="radio" name="hasIndividualRoomDH" id="hasIndividualRoomDH-1" value="0">
 										  否
 										</label>
 									  </div>
 									  
-									  <label class="col-md-2 control-label" for="maidRoomArea">工人房間面積</label>  
+									  <label class="col-md-2 control-label" for="DHRoomArea">工人房間面積</label>  
 									  <div class="col-md-2">
-									  <input id="maidRoomArea" name="maidRoomArea" type="text" placeholder="平方尺" class="form-control input-md">
+									  <input id="DHRoomArea" name="DHRoomArea" type="text" placeholder="平方尺" class="form-control input-md">
 										
 									  </div>
 									</div>
