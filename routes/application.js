@@ -5,6 +5,7 @@ exports.step1 = function(req, res){
 };
 
 exports.step1Next = function(req, res){
+/*
   var applicationId = req.body.applicationId;
 
   //---------- Employer information -----------
@@ -76,9 +77,9 @@ exports.step1Next = function(req, res){
   //---------- Employed DH information[END] -----------
   
   controllerStepOne.save(applicationId, employer, familyMembers, employedDHs, function(){
-	console.log('Done');
+	res.render('../views/application-helper');
   });
-  
+*/
   res.render('../views/application-helper');
 };
 
@@ -96,4 +97,12 @@ exports.step3Next = function(req, res){
 
 exports.step3Previous = function(req, res){
   res.render('../views/application-helper');
+};
+
+exports.step4Next = function(req, res){
+  res.render('../views/index');
+};
+
+exports.step4Previous = function(req, res){
+  res.render('../views/application-document');
 };

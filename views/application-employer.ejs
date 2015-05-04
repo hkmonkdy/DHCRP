@@ -7,23 +7,50 @@
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
 		
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-		<!--[if lte IE 8]><script src="/css/ie/html5shiv.js"></script><![endif]-->
 		<script src="/js/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+		<script src="/js/bootstrap-datepicker.js"></script>
+		<!--[if lte IE 8]><script src="/css/ie/html5shiv.js"></script><![endif]-->
 		<script src="/js/jquery.scrollzer.min.js"></script>
 		<script src="/js/jquery.scrolly.min.js"></script>
 		<script src="/js/skel.min.js"></script>
 		<script src="/js/skel-layers.min.js"></script>
 		<script src="/js/init.js"></script>
+		<script type="text/javascript">
+            // When the document is ready
+            $(document).ready(function () {
+                $('#DOB').datepicker({
+                    format: "yyyy-mm-dd"
+                });
+            
+				$('#employedDHVISADueDate1').datepicker({
+                    format: "yyyy-mm-dd"
+                });
+				
+				$('#employedDHVISADueDate2').datepicker({
+                    format: "yyyy-mm-dd"
+                });
+			
+				$('#employedDHVISADueDate3').datepicker({
+                    format: "yyyy-mm-dd"
+                });
+            });
+        </script>
 		
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="/css/datepicker.css"/>
 		<noscript>
 			<link rel="stylesheet" href="/css/skel.css" />
 			<link rel="stylesheet" href="/css/style.css" />
 			<link rel="stylesheet" href="/css/style-xlarge.css" />
 		</noscript>
 		<!--[if lte IE 8]><link rel="stylesheet" href="/css/ie/v8.css" /><![endif]-->
+		<style type="text/css">
+			.datepicker td.active, .datepicker td.active:hover {
+				  background-image: linear-gradient(to bottom, #80d9c2, #4acaa8);
+			}
+		</style>
 	</head>
 	<body>
 			<!-- Main -->
@@ -42,12 +69,12 @@
 									<div class="form-group">
 									  <label class="col-md-2 control-label" for="firstName">姓名(英)</label>  
 									  <div class="col-md-2">
-									  <input id="firstName" name="firstName" type="text" placeholder="名" class="form-control input-md" required="">
+									  <input id="firstName" name="firstName" type="text" placeholder="名*" class="form-control input-md" required="">
 										
 									  </div>
 									  
 									  <div class="col-md-2">
-									  <input id="lastName" name="lastName" type="text" placeholder="姓" class="form-control input-md">
+									  <input id="lastName" name="lastName" type="text" placeholder="姓*" class="form-control input-md" required="">
 										
 									  </div>
 									  
@@ -58,16 +85,11 @@
 									  </div>
 									</div>
 
-									<!-- Text input-->
-									<div class="form-group">
-									  
-									</div>
-
 									<div class="form-group">
 									  <label class="col-md-2 control-label" for="DOB">出生日期</label>  
 									  <div class="col-md-4">
 									  <input id="DOB" name="DOB" type="text" placeholder="" class="form-control input-md">
-										
+									  
 									  </div>
 									
 									  <label class="col-md-2 control-label" for="gender">性別</label>
@@ -139,9 +161,9 @@
 
 									<!-- Text input-->
 									<div class="form-group">
-									  <label class="col-md-2 control-label" for="contactNumber">聯絡電話號碼</label>  
+									  <label class="col-md-2 control-label" for="contactNumber">聯絡電話號碼*</label>  
 									  <div class="col-md-4">
-									  <input id="contactNumber" name="contactNumber" type="text" placeholder="" class="form-control input-md">
+									  <input id="contactNumber" name="contactNumber" type="text" placeholder="" class="form-control input-md" required="">
 										
 									  </div>
 									  
@@ -154,9 +176,9 @@
 
 									<!-- Text input-->
 									<div class="form-group">
-									  <label class="col-md-2 control-label" for="email">電郵地址</label>  
+									  <label class="col-md-2 control-label" for="email">電郵地址*</label>  
 									  <div class="col-md-4">
-									  <input id="email" name="email" type="text" placeholder="" class="form-control input-md">
+									  <input id="email" name="email" type="text" placeholder="" class="form-control input-md" required="">
 										
 									  </div>
 									</div>
@@ -260,7 +282,7 @@
 									<legend>現時僱用家傭資料</legend>
 									
 									<div class="form-group">
-									  <label class="col-md-4 control-label" for="numOfDH">現時僱用家傭總數</label>  
+									  <label class="col-md-2 control-label" for="numOfDH">現時僱用家傭總數</label>  
 									  <div class="col-md-4">
 									  <input id="numOfDH" name="numOfDH" type="text" placeholder="" class="form-control input-md">
 										
@@ -280,19 +302,19 @@
 											<tr>
 												<td><input id="employedDHNames" name="employedDHNames" type="text" placeholder="" class="form-control input-md"></td>
 												<td><input id="employedDHHKIDs" name="employedDHHKIDs" type="text" placeholder="" class="form-control input-md"></td>
-												<td><input id="employedDHVISADueDates" name="employedDHVISADueDates" type="text" placeholder="" class="form-control input-md"></td>
+												<td><input id="employedDHVISADueDate1" name="employedDHVISADueDates" type="text" placeholder="" class="form-control input-md"></td>
 												<td><input id="employedDHEmployerNames" name="employedDHEmployerNames" type="text" placeholder="" class="form-control input-md"></td>
 											</tr>
 											<tr>
 												<td><input id="employedDHNames" name="employedDHNames" type="text" placeholder="" class="form-control input-md"></td>
 												<td><input id="employedDHHKIDs" name="employedDHHKIDs" type="text" placeholder="" class="form-control input-md"></td>
-												<td><input id="employedDHVISADueDates" name="employedDHVISADueDates" type="text" placeholder="" class="form-control input-md"></td>
+												<td><input id="employedDHVISADueDate2" name="employedDHVISADueDates" type="text" placeholder="" class="form-control input-md"></td>
 												<td><input id="employedDHEmployerNames" name="employedDHEmployerNames" type="text" placeholder="" class="form-control input-md"></td>
 											</tr>
 											<tr>
 												<td><input id="employedDHNames" name="employedDHNames" type="text" placeholder="" class="form-control input-md"></td>
 												<td><input id="employedDHHKIDs" name="employedDHHKIDs" type="text" placeholder="" class="form-control input-md"></td>
-												<td><input id="employedDHVISADueDates" name="employedDHVISADueDates" type="text" placeholder="" class="form-control input-md"></td>
+												<td><input id="employedDHVISADueDate3" name="employedDHVISADueDates" type="text" placeholder="" class="form-control input-md"></td>
 												<td><input id="employedDHEmployerNames" name="employedDHEmployerNames" type="text" placeholder="" class="form-control input-md"></td>
 											</tr>
 										</tbody>
