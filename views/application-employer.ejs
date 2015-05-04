@@ -7,10 +7,23 @@
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
 		
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+		<!--[if lte IE 8]><script src="/css/ie/html5shiv.js"></script><![endif]-->
+		<script src="/js/jquery.min.js"></script>
+		<script src="/js/jquery.scrollzer.min.js"></script>
+		<script src="/js/jquery.scrolly.min.js"></script>
+		<script src="/js/skel.min.js"></script>
+		<script src="/js/skel-layers.min.js"></script>
+		<script src="/js/init.js"></script>
+		
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
-		
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="/css/skel.css" />
+			<link rel="stylesheet" href="/css/style.css" />
+			<link rel="stylesheet" href="/css/style-xlarge.css" />
+		</noscript>
+		<!--[if lte IE 8]><link rel="stylesheet" href="/css/ie/v8.css" /><![endif]-->
 	</head>
 	<body>
 			<!-- Main -->
@@ -59,28 +72,22 @@
 									
 									  <label class="col-md-2 control-label" for="gender">性別</label>
 									  <div class="col-md-4"> 
-										<label class="radio-inline" for="gender-0">
-										  <input type="radio" name="gender" id="gender-0" value="M" checked="checked">
-										  男
-										</label> 
-										<label class="radio-inline" for="gender-1">
-										  <input type="radio" name="gender" id="gender-1" value="F">
-										  女
-										</label>
+										<input type="radio" id="gender-0" name="gender" value="M">
+										<label for="gender-0">男</label>
+										
+										<input type="radio" id="gender-1" name="gender" value="F">
+										<label for="gender-1">女</label>
 									  </div>
 									</div>
 
 									<div class="form-group">
 									  <label class="col-md-2 control-label" for="hasHKID">持有身份証</label>
 									  <div class="col-md-4"> 
-										<label class="radio-inline" for="hasHKID-0">
-										  <input type="radio" name="hasHKID" id="hasHKID-0" value="1" checked="checked">
-										  是
-										</label> 
-										<label class="radio-inline" for="hasHKID-1">
-										  <input type="radio" name="hasHKID" id="hasHKID-1" value="0">
-										  否
-										</label>
+										<input type="radio" id="hasHKID-0" name="hasHKID" value="0">
+										<label for="hasHKID-0">是</label>
+										
+										<input type="radio" id="hasHKID-1" name="hasHKID" value="1">
+										<label for="hasHKID-1">否</label>
 									  </div>
 									</div>
 
@@ -162,14 +169,11 @@
 									<div class="form-group">
 									  <label class="col-md-3 control-label" for="isEmployerSameAdd">您是否居住在合約地址</label>
 									  <div class="col-md-3"> 
-										<label class="radio-inline" for="isEmployerSameAdd-0">
-										  <input type="radio" name="isEmployerSameAdd" id="isEmployerSameAdd-0" value="1" checked="checked">
-										  是
-										</label> 
-										<label class="radio-inline" for="isEmployerSameAdd-1">
-										  <input type="radio" name="isEmployerSameAdd" id="isEmployerSameAdd-1" value="0">
-										  否
-										</label>
+										<input type="radio" id="isEmployerSameAdd-0" name="isEmployerSameAdd" value="0">
+										<label for="isEmployerSameAdd-0">是</label>
+										
+										<input type="radio" id="isEmployerSameAdd-1" name="isEmployerSameAdd" value="1">
+										<label for="isEmployerSameAdd-1">否</label>
 									  </div>
 									  
 									  <label class="col-md-2 control-label" for="houseHoldIncome">每月家庭入息</label>  
@@ -302,10 +306,12 @@
 									<div class="form-group">
 									  <label class="col-md-2 control-label" for="apartmentType">住宅類型</label>
 									  <div class="col-md-2">
-										<select id="apartmentType" name="apartmentType" class="form-control">
-										  <option value="1">Option one</option>
-										  <option value="2">Option two</option>
-										</select>
+										<div class="select-wrapper">
+											<select id="apartmentType" name="apartmentType">
+											  <option value="1">Option one</option>
+											  <option value="2">Option two</option>
+											</select>
+										</div>
 									  </div>
 									  
 									  <label class="col-md-2 control-label" for="apartmentArea">住宅面積</label>  
@@ -324,14 +330,11 @@
 									<div class="form-group">
 									  <label class="col-md-2 control-label" for="hasIndividualRoomDH">獨立工人房間</label>
 									  <div class="col-md-2"> 
-										<label class="radio-inline" for="hasIndividualRoomDH-0">
-										  <input type="radio" name="hasIndividualRoomDH" id="hasIndividualRoomDH-0" value="1" checked="checked">
-										  是
-										</label> 
-										<label class="radio-inline" for="hasIndividualRoomDH-1">
-										  <input type="radio" name="hasIndividualRoomDH" id="hasIndividualRoomDH-1" value="0">
-										  否
-										</label>
+										<input type="radio" id="hasIndividualRoomDH-0" name="hasIndividualRoomDH" value="0">
+										<label for="hasIndividualRoomDH-0">是</label>
+										
+										<input type="radio" id="hasIndividualRoomDH-1" name="hasIndividualRoomDH" value="1">
+										<label for="hasIndividualRoomDH-1">否</label>
 									  </div>
 									  
 									  <label class="col-md-2 control-label" for="DHRoomArea">工人房間面積</label>  
