@@ -11,14 +11,88 @@
 		<script src="/js/skel-layers.min.js"></script>
 		<script src="/js/init.js"></script>
 		
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
 		<noscript>
 			<link rel="stylesheet" href="/css/skel.css" />
 			<link rel="stylesheet" href="/css/style.css" />
 			<link rel="stylesheet" href="/css/style-xlarge.css" />
 		</noscript>
 		<!--[if lte IE 8]><link rel="stylesheet" href="/css/ie/v8.css" /><![endif]-->
+		
+		<style type="text/css">
+			.navbar-inverse {
+			  background-color: #4acaa8 100%);
+			  background-image: -o-linear-gradient(top,#4acaa8 0,#4acaa8 100%);
+			  background-image: -webkit-gradient(linear,left top,left bottom,from(#4acaa8),to(#4acaa8));
+			  background-image: linear-gradient(to bottom,#4acaa8 0,#4acaa8 100%);
+			  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff4acaa8', endColorstr='#ff4acaa8', GradientType=0);
+			  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+			  background-repeat: repeat-x;
+			  border: none;
+			}
+			
+			.navbar-inverse .navbar-nav > .open > a,
+			.navbar-inverse .navbar-nav > .active > a {
+			  background-image: -webkit-linear-gradient(top, #ffffff 0%, #ffffff 100%);
+			  background-image:      -o-linear-gradient(top, #ffffff 0%, #ffffff 100%);
+			  background-image: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#ffffff));
+			  background-image:         linear-gradient(to bottom, #ffffff 0%, #ffffff 100%);
+			  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffffffff', GradientType=0);
+			  background-repeat: repeat-x;
+			  -webkit-box-shadow: none;
+			  box-shadow: none;
+			  color: #4acaa8;
+			}
+			
+			.navbar-inverse .navbar-brand,
+			.navbar-inverse .navbar-nav > li > a {
+			  text-shadow: none;
+			  color: #ffffff;
+			  border: none;
+			}
+			
+			.navbar-inverse .navbar-header a {
+			  font-weight: bold;
+			}
+			
+			.navbar-inverse .navbar-header > a:hover,
+			.navbar-inverse .navbar-header > a:focus,
+			.navbar-inverse .navbar-nav > li > a:hover,
+			.navbar-inverse .navbar-nav > li > a:focus {
+			  color: #ffffff !important;
+			}
+			
+			.navbar-inverse .navbar-nav > li.active > a:hover,
+			.navbar-inverse .navbar-nav > li.active > a:focus {
+			  color: #4acaa8 !important;
+			}
+		</style>
 	</head>
 	<body>
+		<nav class="navbar navbar-inverse">
+		  <div class="container-fluid">
+			<div class="navbar-header">
+			  <a class="navbar-brand" href="/">家庭傭工續約平台</a>
+			</div>
+			<div>
+			  <ul class="nav navbar-nav">
+				<li><a href="/">首頁</a></li>
+				<li><a href="/application-step1">辦理申請</a></li>
+				<li class="active"><a href="/#five">進度查詢</a></li>
+				<li><a href="/#six">聯絡我們</a></li>
+			  </ul>
+			  
+			  <!--
+			  <ul class="nav navbar-nav navbar-right">
+				<li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+				<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+			  </ul>
+			  -->
+			</div>
+		  </div>
+		</nav>
+	
 			<!-- Main -->
 				<div id="main">	
 					<section>
