@@ -6,8 +6,6 @@ var bodyParser = require('body-parser');
 
 var routeIndex = require('./routes/index');
 var routeApplication = require('./routes/application');
-var routeInquiry = require('./routes/inquiry');
-var routeContact = require('./routes/contact');
 
 var app = module.exports = express();
 app.set('port', process.env.PORT || 3000);
@@ -59,11 +57,10 @@ app.post('/application-step3-previous', routeApplication.step3Previous);
 app.post('/application-step4-next', routeApplication.step4Next);
 app.post('/application-step4-previous', routeApplication.step4Previous);
 
-app.post('/inquiry', routeInquiry.inquiry);
-app.post('/contact', routeContact.contact);
-
 app.use('/application-step2', routeApplication.step3Previous);
 app.use('/application-step3', routeApplication.step2Next);
 app.use('/application-step4', routeApplication.step3Next);
 
+app.post('/inquiry', routeIndex.inquiry);
+app.post('/contact', routeIndex.contact);
 app.use('/', routeIndex.index);
