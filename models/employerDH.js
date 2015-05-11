@@ -1,52 +1,35 @@
-var mysql      = require('mysql');
-var connection = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'root',
-  password : 'mysql15leo',
-  database : 'dhcrp'
+var orm = require("orm");
+var db = orm.connect("mysql://root:mysql15leo@localhost/dhcrp", function (err, db) {
+    if (err) {
+        console.log("Could not connect to database!");
+        return;
+    }
 });
 
-exports.create = function(applicationId, employedDH, done){
-	var fieldString = "applicationId";
-	var valueString = applicationId;
-	
-	if(employedDH.name){
-	  fieldString += ", name";
-	  valueString += ", '" + employedDH.name + "'";
-	}
-	
-	if(employedDH.HKID){
-	  fieldString += ", HKID";
-	  valueString += ", '" + employedDH.HKID + "'";
-	}
-	
-	if(employedDH.VISADueDate){
-	  fieldString += ", VISADueDate";
-	  valueString += ", '" + employedDH.VISADueDate + "'";
-	}
-	
-	if(employedDH.employerName){
-	  fieldString += ", employerName";
-	  valueString += ", '" + employedDH.employerName + "'";
-	}
+var Application = db.define("application", {
+	applicationId		: { type: "integer", unique: true },
+	statusId			: "integer",
+	createOn			: { type: "date", time: true },
+	updateOn			: { type: "date", time: true }
+},{
+	id	:	"applicationId"
+});
 
-	connection.query('INSERT INTO employer_dh (' + fieldString + ') VALUES (' + valueString + ')', function(err, rows, fields) {
-	  connection.end();
-	  if (!err){
-		done(rows['insertId']);
-	  }else{
-		console.log('Error while performing Query. - '+err);
-	  }
+const APPLICATION_STATUS_NOT_SUBMITTED = 1;
+
+exports.create = function(done){
+	Application.create([{
+		statusId : 1,
+		createOn : new Date(),
+		updateOn : new Date(),
+	}], function (err, application) {
+		done(application.applicationId);
 	});
 }
 
-exports.delete = function(applicationId, done){
-  connection.query('DELETE FROM employer_dh WHERE applicationid=' + applicationId, function(err, rows, fields) {
-	connection.end();
-	if (!err){
-      done();
-	}else{
-      console.log('Error while performing Query.');
-	}
-  });
+exports.update = function(applicationId, done){
+	Application.one({ applicationId : applicationId}, function (err, application) {
+		application.updateOn = new Date();
+		application.save(done);
+	});
 }

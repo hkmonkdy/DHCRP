@@ -1,177 +1,93 @@
-var mysql      = require('mysql');
-var connection = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'root',
-  password : 'mysql15leo',
-  database : 'dhcrp'
+var orm = require("orm");
+var db = orm.connect("mysql://root:mysql15leo@localhost/dhcrp", function (err, db) {
+    if (err) {
+        console.log("Could not connect to database!");
+        return;
+    }
+});
+
+var Employer = db.define("employer", {
+	employerId				: { type: "integer", unique: true },
+	lastName				: "text",
+	firstName				: "text",
+	HKID					: "text",
+	gender					: "text",
+	chineseName				: "text",
+	DOB						: { type: "date", time: false },
+	passportType			: "text",
+	passportNumber			: "text",
+	nationality				: "text",
+	occupation				: "text",
+	address1				: "text",
+	address2				: "text",
+	isAddSameAsOldContract	: "integer",
+	contactNumber			: "text",
+	homeNumber				: "text",
+	email					: "text",
+	numOfAdult				: "integer",
+	numOfChild				: "integer",
+	numOfBaby				: "integer",
+	numOfPreBorn			: "integer",
+	numOfSpecialCare		: "integer",
+	numOfDH					: "integer",
+	houseHoldIncome			: "integer",
+	isEmployerSameAdd		: "integer",
+	apartmentTypeId			: "integer",
+	hasIndividualRoomDH		: "integer",
+	apartmentArea			: "integer",
+	numOfRoom				: "integer",
+	DHRoomArea				: "integer",
+	numOfFamilyInDHRoom		: "integer",
+	applicationId			: { type: "integer", unique: true }
+},{
+	id	:	"employerId"
 });
 
 exports.create = function(applicationId, employer, done){
-	var fieldString = "applicationId";
-	var valueString = applicationId;
-	
-	if(employer.firstName){
-	  fieldString += ", lastName";
-	  valueString += ", '" + employer.lastName + "'";
-	}
-	
-	if(employer.firstName){
-	  fieldString += ", firstName";
-	  valueString += ", '" + employer.firstName + "'";
-	}
-	
-	if(employer.HKID){
-	  fieldString += ", HKID";
-	  valueString += ", '" + employer.HKID + "'";
-	}
-	
-	if(employer.gender){
-	  fieldString += ", gender";
-	  valueString += ", '" + employer.gender + "'";
-	}
-	
-	if(employer.chineseName){
-	  fieldString += ", chineseName";
-	  valueString += ", '" + employer.chineseName + "'";
-	}
-	
-	if(employer.DOB){
-	  fieldString += ", DOB";
-	  valueString += ", '" + employer.DOB + "'";
-	}
-	
-	if(employer.passportNumber){
-	  fieldString += ", passportNumber";
-	  valueString += ", '" + employer.passportNumber + "'";
-	}
-	
-	if(employer.nationality){
-	  fieldString += ", nationality";
-	  valueString += ", '" + employer.nationality + "'";
-	}
-	
-	if(employer.occupation){
-	  fieldString += ", occupation";
-	  valueString += ", '" + employer.occupation + "'";
-	}
-	
-	if(employer.address1){
-	  fieldString += ", address1";
-	  valueString += ", '" + employer.address1 + "'";
-	}
-	
-	if(employer.address2){
-	  fieldString += ", address2";
-	  valueString += ", '" + employer.address2 + "'";
-	}
-	
-	if(employer.isAddSameAsOldContract){
-	  fieldString += ", isAddSameAsOldContract";
-	  valueString += ", " + employer.isAddSameAsOldContract;
-	}
-	
-	if(employer.contactNumber){
-	  fieldString += ", contactNumber";
-	  valueString += ", '" + employer.contactNumber + "'";
-	}
-	
-	if(employer.homeNumber){
-	  fieldString += ", homeNumber";
-	  valueString += ", '" + employer.homeNumber + "'";
-	}
-	
-	if(employer.email){
-	  fieldString += ", email";
-	  valueString += ", '" + employer.email + "'";
-	}
-	
-	if(employer.numOfAdult){
-	  fieldString += ", numOfAdult";
-	  valueString += ", " + employer.numOfAdult;
-	}
-	
-	if(employer.numOfChild){
-	  fieldString += ", numOfChild";
-	  valueString += ", " + employer.numOfChild;
-	}
-	
-	if(employer.numOfBaby){
-	  fieldString += ", numOfBaby";
-	  valueString += ", " + employer.numOfBaby;
-	}
-	
-	if(employer.numOfPreBorn){
-	  fieldString += ", numOfPreBorn";
-	  valueString += ", " + employer.numOfPreBorn;
-	}
-	
-	if(employer.numOfSpecialCare){
-	  fieldString += ", numOfSpecialCare";
-	  valueString += ", " + employer.numOfSpecialCare;
-	}
-	
-	if(employer.numOfDH){
-	  fieldString += ", numOfDH";
-	  valueString += ", " + employer.numOfDH;
-	}
-	
-	if(employer.houseHoldIncome){
-	  fieldString += ", houseHoldIncome";
-	  valueString += ", " + employer.houseHoldIncome;
-	}
-	
-	if(employer.isEmployerSameAdd){
-	  fieldString += ", isEmployerSameAdd";
-	  valueString += ", " + employer.isEmployerSameAdd;
-	}
-	
-	if(employer.apartmentTypeId){
-	  fieldString += ", apartmentTypeId";
-	  valueString += ", " + employer.apartmentTypeId;
-	}
-	
-	if(employer.hasIndividualRoomDH){
-	  fieldString += ", hasIndividualRoomDH";
-	  valueString += ", " + employer.hasIndividualRoomDH;
-	}
-	
-	if(employer.apartmentArea){
-	  fieldString += ", apartmentArea";
-	  valueString += ", " + employer.apartmentArea;
-	}
-	
-	if(employer.numOfRoom){
-	  fieldString += ", numOfRoom";
-	  valueString += ", " + employer.numOfRoom;
-	}
-	
-	if(employer.DHRoomArea){
-	  fieldString += ", DHRoomArea";
-	  valueString += ", " + employer.DHRoomArea;
-	}
-	
-	if(employer.numOfFamilyInDHRoom){
-	  fieldString += ", numOfFamilyInDHRoom";
-	  valueString += ", " + employer.numOfFamilyInDHRoom;
-	}
 
-	connection.query('INSERT INTO employer (' + fieldString + ') VALUES (' + valueString + ')', function(err, rows, fields) {
-	  connection.end();
-	  if (!err){
-		done(rows['insertId']);
-	  }else{
-		console.log('Error while performing Query.');
-	  }
+	Employer.create([{
+		lastName				: (employer.lastName)? employer.lastName: null,
+		firstName				: (employer.firstName)? employer.firstName: null,
+		HKID					: (employer.HKID)? employer.HKID: null,
+		gender					: (employer.gender)? employer.gender: null,
+		chineseName				: (employer.chineseName)? employer.chineseName: null,
+		DOB						: (employer.DOB)? employer.DOB: null,
+		//passportType			: (employer.passportType)? employer.passportType: null,
+		passportNumber			: (employer.passportNumber)? employer.passportNumber: null,
+		nationality				: (employer.nationality)? employer.nationality: null,
+		occupation				: (employer.occupation)? employer.occupation: null,
+		address1				: (employer.address1)? employer.address1: null,
+		address2				: (employer.address2)? employer.address2: null,
+		isAddSameAsOldContract	: (employer.isAddSameAsOldContract)? employer.isAddSameAsOldContract: null,
+		contactNumber			: (employer.contactNumber)? employer.contactNumber: null,
+		homeNumber				: (employer.homeNumber)? employer.homeNumber: null,
+		email					: (employer.email)? employer.email: null,
+		numOfAdult				: (employer.numOfAdult)? employer.numOfAdult: 0,
+		numOfChild				: (employer.numOfChild)? employer.numOfChild: 0,
+		numOfBaby				: (employer.numOfBaby)? employer.numOfBaby: 0,
+		numOfPreBorn			: (employer.numOfPreBorn)? employer.numOfPreBorn: 0,
+		numOfSpecialCare		: (employer.numOfSpecialCare)? employer.numOfSpecialCare: 0,
+		numOfDH					: (employer.numOfDH)? employer.numOfDH: 0,
+		houseHoldIncome			: (employer.houseHoldIncome)? employer.houseHoldIncome: null,
+		isEmployerSameAdd		: (employer.isEmployerSameAdd)? employer.isEmployerSameAdd: 1,
+		apartmentTypeId			: (employer.apartmentTypeId)? employer.apartmentTypeId: null,
+		hasIndividualRoomDH		: (employer.hasIndividualRoomDH)? employer.hasIndividualRoomDH: 1,
+		apartmentArea			: (employer.apartmentArea)? employer.apartmentArea: null,
+		numOfRoom				: (employer.numOfRoom)? employer.numOfRoom: null,
+		DHRoomArea				: (employer.DHRoomArea)? employer.DHRoomArea: null,
+		numOfFamilyInDHRoom		: (employer.numOfFamilyInDHRoom)? employer.numOfFamilyInDHRoom: 0,
+		applicationId			: applicationId
+	}], function (err, employer) {
+		//console.log(employer.employerId);
+		console.log(err);
+		console.log(employer);
+		done(employer.employerId)
 	});
 }
 
-exports.delete = function(applicationId, done){
-  connection.query('DELETE FROM employer WHERE applicationid=' + applicationId, function(err, rows, fields) {
-	connection.end();
-	if (!err){
-      done();
-	}else{
-      console.log('Error while performing Query.');
-	}
-  });
+exports.update = function(applicationId, done){
+	Application.one({ applicationId : applicationId}, function (err, application) {
+		application.updateOn = new Date();
+		application.save(done);
+	});
 }

@@ -10,9 +10,10 @@ exports.save = function(applicationId, employer, familyMembers, employedDHs, don
 	modelEmployerFamily.delete(applicationId);
 	modelEmployerDH.delete(applicationId);
   }else{
-	modelApplication.create(function(applicationId){
+	modelApplication.create(function(employer, applicationId){
+	/*
 	  modelEmployer.create(applicationId, employer, function(){
-		/*
+		
 		for(var key in familyMembers){
 		  modelEmployerFamily.create(applicationId, familyMembers[key], function(){
 			for(var key in employedDHs){
@@ -20,8 +21,9 @@ exports.save = function(applicationId, employer, familyMembers, employedDHs, don
 			}
 		  });
 		}
-		*/
-	  });
+		
+	  })
+	  */
 	});
   }
 

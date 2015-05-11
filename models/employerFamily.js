@@ -1,62 +1,35 @@
-var mysql      = require('mysql');
-var connection = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'root',
-  password : 'mysql15leo',
-  database : 'dhcrp'
+var orm = require("orm");
+var db = orm.connect("mysql://root:mysql15leo@localhost/dhcrp", function (err, db) {
+    if (err) {
+        console.log("Could not connect to database!");
+        return;
+    }
 });
 
-exports.create = function(applicationId, employerFamily, done){
-	var fieldString = "applicationId";
-	var valueString = applicationId;
-	
-	if(employerFamily.name){
-	  fieldString += ", name";
-	  valueString += ", '" + employerFamily.name + "'";
-	}
-	
-	if(employerFamily.birthYear){
-	  fieldString += ", birthYear";
-	  valueString += ", " + employerFamily.birthYear;
-	}
-	
-	if(employerFamily.relationship){
-	  fieldString += ", relationship";
-	  valueString += ", '" + employerFamily.relationship + "'";
-	}
-	
-	if(employerFamily.HKID){
-	  fieldString += ", HKID";
-	  valueString += ", '" + employerFamily.HKID + "'";
-	}
-	
-	if(employerFamily.isDHRoom){
-	  fieldString += ", isDHRoom";
-	  valueString += ", " + employerFamily.isDHRoom;
-	}
-	
-	if(employerFamily.orderNum){
-	  fieldString += ", orderNum";
-	  valueString += ", " + employerFamily.orderNum;
-	}
+var Application = db.define("application", {
+	applicationId		: { type: "integer", unique: true },
+	statusId			: "integer",
+	createOn			: { type: "date", time: true },
+	updateOn			: { type: "date", time: true }
+},{
+	id	:	"applicationId"
+});
 
-	connection.query('INSERT INTO employer_family (' + fieldString + ') VALUES (' + valueString + ')', function(err, rows, fields) {
-	  connection.end();
-	  if (!err){
-		done(rows['insertId']);
-	  }else{
-		console.log('Error while performing Query. - '+err);
-	  }
+const APPLICATION_STATUS_NOT_SUBMITTED = 1;
+
+exports.create = function(done){
+	Application.create([{
+		statusId : 1,
+		createOn : new Date(),
+		updateOn : new Date(),
+	}], function (err, application) {
+		done(application.applicationId);
 	});
 }
 
-exports.delete = function(applicationId, done){
-  connection.query('DELETE FROM employer_family WHERE applicationid=' + applicationId, function(err, rows, fields) {
-	connection.end();
-	if (!err){
-      done();
-	}else{
-      console.log('Error while performing Query.');
-	}
-  });
+exports.update = function(applicationId, done){
+	Application.one({ applicationId : applicationId}, function (err, application) {
+		application.updateOn = new Date();
+		application.save(done);
+	});
 }
