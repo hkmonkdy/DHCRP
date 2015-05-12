@@ -7,6 +7,8 @@ var bodyParser = require('body-parser');
 var routeIndex = require('./routes/index');
 var routeApplication = require('./routes/application');
 
+var controllerMongoDB = require('./controllers/mongoDB');
+
 var app = module.exports = express();
 app.set('port', process.env.PORT || 3000);
 
@@ -48,19 +50,26 @@ var server = app.listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
 
-app.use('/application-step1', routeApplication.step1);
-app.post('/application-step1-next', routeApplication.step1Next);
-app.post('/application-step2-next', routeApplication.step2Next);
-app.post('/application-step2-previous', routeApplication.step2Previous);
-app.post('/application-step3-next', routeApplication.step3Next);
-app.post('/application-step3-previous', routeApplication.step3Previous);
-app.post('/application-step4-next', routeApplication.step4Next);
-app.post('/application-step4-previous', routeApplication.step4Previous);
+app.use('/application-step1', function(err, req, res) {
+	routeApplication.step1
+});
 
-app.use('/application-step2', routeApplication.step3Previous);
-app.use('/application-step3', routeApplication.step2Next);
-app.use('/application-step4', routeApplication.step3Next);
+app.post('/application-step1-next', function(err, req, res) {
+	routeApplication.step1Next(req, res,controllerMongoDB)
+});
+/*
+app.post('/application-step2-next', routeApplication.step2Next(req, res,controllerMongoDB));
+app.post('/application-step2-previous', routeApplication.step2Previous(controllerMongoDB));
+app.post('/application-step3-next', routeApplication.step3Next(req, res,controllerMongoDB));
+app.post('/application-step3-previous', routeApplication.step3Previous(controllerMongoDB));
+app.post('/application-step4-next', routeApplication.step4Next(req, res,controllerMongoDB));
+app.post('/application-step4-previous', routeApplication.step4Previous(req, res,controllerMongoDB));
 
-app.post('/inquiry', routeIndex.inquiry);
-app.post('/contact', routeIndex.contact);
+app.use('/application-step2', routeApplication.step3Previous(req, res,controllerMongoDB));
+app.use('/application-step3', routeApplication.step2Next(req, res,controllerMongoDB));
+app.use('/application-step4', routeApplication.step3Next(req, res,controllerMongoDB));
+
+app.post('/inquiry', routeIndex.inquiry(req, res,controllerMongoDB));
+app.post('/contact', routeIndex.contact(req, res,controllerMongoDB));
+*/
 app.use('/', routeIndex.index);
