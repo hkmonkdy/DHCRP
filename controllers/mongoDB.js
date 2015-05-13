@@ -9,7 +9,7 @@ const APPLICATION_STATUS_NOT_SUBMITTED = 1;
 
 module.exports = {
 	getApplication: function (applicationId, next) {
-		Application.findOne({ _id: submittedApplication._id }, function (err, dbApplication) {
+		Application.findOne({ _id: applicationId }, function (err, dbApplication) {
 			return next(err, dbApplication);
 		});
 	},

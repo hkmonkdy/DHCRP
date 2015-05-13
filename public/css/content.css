@@ -1,0 +1,23 @@
+.icon_one:before {
+  content: "1";
+}
+
+.icon_two:before {
+  content: "2";
+}
+
+.icon_three:before {
+  content: "3";
+}
+
+.icon_four:before {
+  content: "4";
+}
+
+.icon_five:before {
+  content: "5";
+}
+
+.icon_six:before {
+  content: "6";
+}

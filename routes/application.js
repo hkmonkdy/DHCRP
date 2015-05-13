@@ -92,93 +92,15 @@ exports.step1Next = function(req, res, controllerMongoDB){
 };
 
 exports.step2Next = function(req, res, controllerMongoDB){
-  var applicationId = req.body.applicationId;
-  
-  //---------- Domestic Helper information -----------
-  application.domesticHelper = {};
-  
-  application.domesticHelper.firstName = req.body.firstName;
-  application.domesticHelper.middleName = req.body.middleName;
-  application.domesticHelper.lastName = req.body.lastName;
-  application.domesticHelper.HKID = req.body.HKID;
-  application.domesticHelper.HKIDIssueDate = req.body.HKIDIssueDate;
-  application.domesticHelper.DOB = req.body.DOB;
-  application.domesticHelper.gender = req.body.gender;
-  application.domesticHelper.birthPlace = req.body.birthPlace;
-  application.domesticHelper.Nationality = req.body.Nationality;
-  application.domesticHelper.maritalStatusId = req.body.maritalStatusId;
-  application.domesticHelper.addOfResidence1 = req.body.addOfResidence1;
-  application.domesticHelper.addOfResidence2 = req.body.addOfResidence2;
-  application.domesticHelper.contactNumber = req.body.contactNumber;
-  application.domesticHelper.email = req.body.email;
-  application.domesticHelper.familyContactName = req.body.familyContactName;
-  application.domesticHelper.familyContactNumber = req.body.familyContactNumber;
-  application.domesticHelper.postRenewalArrangement = req.body.postRenewalArrangement;
-  application.domesticHelper.postRenewalTravelStartDate = req.body.postRenewalTravelStartDate;
-  application.domesticHelper.postRenewalTravelEndDate = req.body.postRenewalTravelEndDate;
-  application.domesticHelper.postRenewalPostponeReason = req.body.postRenewalPostponeReason;
-  application.domesticHelper.passortNumber = req.body.passortNumber;
-  application.domesticHelper.passportIssueDate = req.body.passportIssueDate;
-  application.domesticHelper.passportDueDate = req.body.passportDueDate;
-  application.domesticHelper.passportIssueCountry = req.body.passportIssueCountry;
-  application.domesticHelper.VISAIssueDate = req.body.VISAIssueDate;
-  application.domesticHelper.VISADueDate = req.body.VISADueDate;
-  //---------- Domestic Helper information[END] -----------
-  
-  if(applicationId){
-	controllerMongoDB.getApplication(application, function(err, application){
-	  application.domesticHelper = domesticHelper;
-	
-	  controllerMongoDB.saveApplication(application, function(err, application){
-		res.render('../views/application-document', { applicationId : application._id });
-	  });
-	});
-  }
+  saveDomesticHelper(req, controllerMongoDB, function(applicationId){
+    res.render('../views/application-document', { applicationId : applicationId });
+  });
 };
 
 exports.step2Previous = function(req, res, controllerMongoDB){
-  var applicationId = req.body.applicationId;
-  
-  //---------- Domestic Helper information -----------
-  application.domesticHelper = {};
-  
-  application.domesticHelper.firstName = req.body.firstName;
-  application.domesticHelper.middleName = req.body.middleName;
-  application.domesticHelper.lastName = req.body.lastName;
-  application.domesticHelper.HKID = req.body.HKID;
-  application.domesticHelper.HKIDIssueDate = req.body.HKIDIssueDate;
-  application.domesticHelper.DOB = req.body.DOB;
-  application.domesticHelper.gender = req.body.gender;
-  application.domesticHelper.birthPlace = req.body.birthPlace;
-  application.domesticHelper.Nationality = req.body.Nationality;
-  application.domesticHelper.maritalStatusId = req.body.maritalStatusId;
-  application.domesticHelper.addOfResidence1 = req.body.addOfResidence1;
-  application.domesticHelper.addOfResidence2 = req.body.addOfResidence2;
-  application.domesticHelper.contactNumber = req.body.contactNumber;
-  application.domesticHelper.email = req.body.email;
-  application.domesticHelper.familyContactName = req.body.familyContactName;
-  application.domesticHelper.familyContactNumber = req.body.familyContactNumber;
-  application.domesticHelper.postRenewalArrangement = req.body.postRenewalArrangement;
-  application.domesticHelper.postRenewalTravelStartDate = req.body.postRenewalTravelStartDate;
-  application.domesticHelper.postRenewalTravelEndDate = req.body.postRenewalTravelEndDate;
-  application.domesticHelper.postRenewalPostponeReason = req.body.postRenewalPostponeReason;
-  application.domesticHelper.passortNumber = req.body.passortNumber;
-  application.domesticHelper.passportIssueDate = req.body.passportIssueDate;
-  application.domesticHelper.passportDueDate = req.body.passportDueDate;
-  application.domesticHelper.passportIssueCountry = req.body.passportIssueCountry;
-  application.domesticHelper.VISAIssueDate = req.body.VISAIssueDate;
-  application.domesticHelper.VISADueDate = req.body.VISADueDate;
-  //---------- Domestic Helper information[END] -----------
-  
-  if(applicationId){
-	controllerMongoDB.getApplication(applicationId, function(err, application){
-	  application.domesticHelper = domesticHelper;
-	
-	  controllerMongoDB.saveApplication(application, function(err, application){
-		res.render('../views/application-employer', { applicationId : application._id });
-	  });
-	});
-  }
+  saveDomesticHelper(req, controllerMongoDB, function(applicationId){
+    res.render('../views/application-employer', { applicationId : applicationId });
+  });
 };
 
 exports.step3Next = function(req, res, controllerMongoDB){
@@ -196,3 +118,52 @@ exports.step4Next = function(req, res, controllerMongoDB){
 exports.step4Previous = function(req, res, controllerMongoDB){
   res.render('../views/application-document');
 };
+
+function saveDomesticHelper(req, controllerMongoDB, next){
+  var applicationId = req.body.applicationId;
+  
+  //---------- Domestic Helper information -----------
+  var domesticHelper = {};
+  
+  domesticHelper.firstName = req.body.firstName;
+  domesticHelper.middleName = req.body.middleName;
+  domesticHelper.lastName = req.body.lastName;
+  domesticHelper.HKID = req.body.HKID;
+  domesticHelper.HKIDIssueDate = req.body.HKIDIssueDate;
+  domesticHelper.DOB = req.body.DOB;
+  domesticHelper.gender = req.body.gender;
+  domesticHelper.birthPlace = req.body.birthPlace;
+  domesticHelper.Nationality = req.body.Nationality;
+  domesticHelper.maritalStatusId = req.body.maritalStatusId;
+  domesticHelper.addOfResidence1 = req.body.addOfResidence1;
+  domesticHelper.addOfResidence2 = req.body.addOfResidence2;
+  domesticHelper.contactNumber = req.body.contactNumber;
+  domesticHelper.email = req.body.email;
+  domesticHelper.familyContactName = req.body.familyContactName;
+  domesticHelper.familyContactNumber = req.body.familyContactNumber;
+  domesticHelper.postRenewalArrangement = req.body.postRenewalArrangement;
+  domesticHelper.postRenewalTravelStartDate = req.body.postRenewalTravelStartDate;
+  domesticHelper.postRenewalTravelEndDate = req.body.postRenewalTravelEndDate;
+  domesticHelper.postRenewalPostponeReason = req.body.postRenewalPostponeReason;
+  domesticHelper.passortNumber = req.body.passortNumber;
+  domesticHelper.passportIssueDate = req.body.passportIssueDate;
+  domesticHelper.passportDueDate = req.body.passportDueDate;
+  domesticHelper.passportIssueCountry = req.body.passportIssueCountry;
+  domesticHelper.VISAIssueDate = req.body.VISAIssueDate;
+  domesticHelper.VISADueDate = req.body.VISADueDate;
+  //---------- Domestic Helper information[END] -----------
+  
+  if(applicationId){
+	controllerMongoDB.getApplication(applicationId, function(err, application){
+	  application.domesticHelper = domesticHelper;
+	
+	  controllerMongoDB.saveApplication(application, function(err){
+		if(err){
+		  console.log(err);
+		}else{
+		  next(applicationId);
+		}
+	  });
+	});
+  }
+}
