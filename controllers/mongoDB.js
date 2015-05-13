@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://52.74.60.163:27017/dhcrp'); 
+mongoose.connect('mongodb://localhost:27017/dhcrp'); 
 
 var Application = require('../models/application');
 var ApplicationInquiry = require('../models/application_inquiry');
