@@ -50,26 +50,46 @@ var server = app.listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
 
-app.use('/application-step1', function(err, req, res) {
-	routeApplication.step1
+app.use('/application-step1', function(req, res) {
+	routeApplication.step1(req, res);
+});
+app.post('/application-step1-next', function(req, res) {
+	routeApplication.step1Next(req, res,controllerMongoDB);
+});
+app.post('/application-step2-next', function(req, res) {
+	routeApplication.step2Next(req, res,controllerMongoDB);
+});
+app.post('/application-step2-previous', function(req, res) {
+	routeApplication.step2Previous(req, res,controllerMongoDB);
+});
+app.post('/application-step3-next', function(req, res) {
+	routeApplication.step3Next(req, res,controllerMongoDB);
+});
+app.post('/application-step3-previous', function(req, res) {
+	routeApplication.step3Previous(req, res,controllerMongoDB);
+});
+app.post('/application-step4-next', function(req, res) {
+	routeApplication.step4Next(req, res,controllerMongoDB);
+});
+app.post('/application-step4-previous', function(req, res) {
+	routeApplication.step4Previous(req, res,controllerMongoDB);
 });
 
-app.post('/application-step1-next', function(err, req, res) {
-	routeApplication.step1Next(req, res,controllerMongoDB)
+app.use('/application-step2', function(req, res) {
+	routeApplication.step3Previous(req, res,controllerMongoDB);
 });
-/*
-app.post('/application-step2-next', routeApplication.step2Next(req, res,controllerMongoDB));
-app.post('/application-step2-previous', routeApplication.step2Previous(controllerMongoDB));
-app.post('/application-step3-next', routeApplication.step3Next(req, res,controllerMongoDB));
-app.post('/application-step3-previous', routeApplication.step3Previous(controllerMongoDB));
-app.post('/application-step4-next', routeApplication.step4Next(req, res,controllerMongoDB));
-app.post('/application-step4-previous', routeApplication.step4Previous(req, res,controllerMongoDB));
+app.use('/application-step3', function(req, res) {
+	routeApplication.step2Next(req, res,controllerMongoDB);
+});
+app.use('/application-step4', function(req, res) {
+	routeApplication.step3Next(req, res,controllerMongoDB);
+});
 
-app.use('/application-step2', routeApplication.step3Previous(req, res,controllerMongoDB));
-app.use('/application-step3', routeApplication.step2Next(req, res,controllerMongoDB));
-app.use('/application-step4', routeApplication.step3Next(req, res,controllerMongoDB));
+app.post('/inquiry', function(req, res) {
+	routeIndex.inquiry(req, res,controllerMongoDB);
+});
+app.post('/contact', function(req, res) {
+	routeIndex.contact(req, res,controllerMongoDB);
+});
 
-app.post('/inquiry', routeIndex.inquiry(req, res,controllerMongoDB));
-app.post('/contact', routeIndex.contact(req, res,controllerMongoDB));
-*/
 app.use('/', routeIndex.index);

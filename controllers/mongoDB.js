@@ -8,6 +8,12 @@ var GeneralInquiry = require('../models/general_inquiry');
 const APPLICATION_STATUS_NOT_SUBMITTED = 1;
 
 module.exports = {
+	getApplication: function (applicationId, next) {
+		Application.findOne({ _id: submittedApplication._id }, function (err, dbApplication) {
+			return next(err, dbApplication);
+		});
+	},
+	
 	saveApplication: function (submittedApplication, next) {
 		if(submittedApplication._id){
 			Application.findOne({ _id: submittedApplication._id }, function (err, dbApplication) {
