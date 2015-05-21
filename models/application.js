@@ -5,7 +5,8 @@ var applicationSchema = mongoose.Schema({
 	createOn		: { type: Date, default: Date.now, required: true },
 	updateOn		: { type: Date, default: Date.now, required: true },
 	employer		: mongoose.Schema.Types.Mixed,
-	domesticHelper	: mongoose.Schema.Types.Mixed
+	domesticHelper	: mongoose.Schema.Types.Mixed,
+	Document		: mongoose.Schema.Types.Mixed
 });
 
 module.exports = mongoose.model('application', applicationSchema);
