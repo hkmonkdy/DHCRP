@@ -3,6 +3,7 @@ var path = require('path');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var multer = require('multer');
 
 var routeIndex = require('./routes/index');
 var routeApplication = require('./routes/application');
@@ -21,6 +22,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use('/uploads', express.static(__dirname + '/uploads'));
+app.use(multer({dest: './uploads/'}))
 
 /// error handlers
 
@@ -76,7 +80,8 @@ app.post('/application-step4-previous', function(req, res) {
 });
 
 app.use('/application-step2', function(req, res) {
-	routeApplication.step3Previous(req, res,controllerMongoDB);
+	//routeApplication.step3Previous(req, res,controllerMongoDB);
+	routeApplication.step3Next(req, res,controllerMongoDB);
 });
 app.use('/application-step3', function(req, res) {
 	routeApplication.step2Next(req, res,controllerMongoDB);

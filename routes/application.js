@@ -1,5 +1,3 @@
-var multiparty = require('multiparty');
-
 exports.step1 = function(req, res){
   res.render('../views/application-employer', { applicationId : null });
 };
@@ -107,8 +105,8 @@ exports.step2Previous = function(req, res, controllerMongoDB){
 
 exports.step3Next = function(req, res, controllerMongoDB){
   saveDocuments(req, controllerMongoDB, function(applicationId){
-    res.render('../views/application-confirmation', { applicationId : applicationId });
-  });
+    //res.render('../views/application-confirmation', { applicationId : applicationId });
+  }, res);
 };
 
 exports.step3Previous = function(req, res, controllerMongoDB){
@@ -174,7 +172,8 @@ function saveDomesticHelper(req, controllerMongoDB, next){
   }
 }
 
-function saveDocuments(req, controllerMongoDB, next){
+function saveDocuments(req, controllerMongoDB, next, res){
+/*
   var applicationId = req.body.applicationId;
   
   var form = new multiparty.Form();
@@ -239,4 +238,16 @@ function saveDocuments(req, controllerMongoDB, next){
 	  });
 	});
   }
+*/
+
+/*
+	var dirname = require('path').dirname(__dirname);
+    var filename = req.files.file.name;
+    var path = req.files.file.path;
+    var type = req.files.file.mimetype;
+      
+    var read_stream =  fs.createReadStream(dirname + '/' + path);
+*/
+	controllerMongoDB.testout(res);
+	next();
 }
