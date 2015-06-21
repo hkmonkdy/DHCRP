@@ -1,9 +1,6 @@
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/dhcrp'); 
 
-
-
-
 var conn = mongoose.connection; 
 var fs = require('fs');
 var Grid = require('gridfs-stream');

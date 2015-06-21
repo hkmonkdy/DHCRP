@@ -126,8 +126,8 @@
 							<div style="width: 646px; height: 79px; background-image: url('/images/step3.png');"></div>						
 							<br/><h3>步驟三 > 上載文件</h3><br/>
 							
-							<form class="form-horizontal" enctype="multipart/form-data" action="/application-step3-next" method="post">
-								<input id="applicationId" name="applicationId" type="hidden" value="<%= applicationId %>"/>
+							<form action="/application-step3-next" enctype="multipart/form-data" method="post" class="form-horizontal">
+								<input id="applicationId" name="applicationId" type="hidden" value="5586e91a18cc1b7816498f16"/>
 							
 								<fieldset>
 									<!-- Form Name -->
@@ -136,32 +136,27 @@
 									<div class="form-group">
 									  <label class="col-md-2 control-label" for="passportNumber">香港身份證</label>  
 									  <div class="col-md-10">
-									  <input id="file-0a" class="file" type="file"><br/>
-										
+										<input type="file" name="employer_hkid" size="40" class="file" data-show-preview="false" data-show-upload="false"/><br/>
 									  </div>
 									
 									  <label class="col-md-2 control-label" for="passportNumber">護照相片資料頁</label>  
 									  <div class="col-md-10">
-									  <input id="file-0a" class="file" type="file"/><br/>
-										
+										<input type="file" name="employer_passport" size="40" class="file" data-show-preview="false" data-show-upload="false"/><br/>
 									  </div>
 									
 									  <label class="col-md-2 control-label" for="passportNumber">留港簽証頁</label>  
 									  <div class="col-md-10">
-									  <input id="file-0a" class="file" type="file"/><br/>
-										
+										<input type="file" name="employer_visa" size="40" class="file" data-show-preview="false" data-show-upload="false"/><br/>
 									  </div>
 									
 									  <label class="col-md-2 control-label" for="passportNumber">住址證明</label>  
 									  <div class="col-md-10">
-									  <input id="file-0a" class="file" type="file"/><br/>
-										
+										<input type="file" name="employer_address_proof" size="40" class="file" data-show-preview="false" data-show-upload="false"/><br/>
 									  </div>
 									  
 									  <label class="col-md-2 control-label" for="passportNumber">其它</label>  
 									  <div class="col-md-10">
-									  <input id="file-0a" class="file" type="file"/><br/>
-										
+										<input type="file" name="employer_other" size="40" class="file" data-show-preview="false" data-show-upload="false"/><br/>
 									  </div>
 									</div>
 								</fieldset>
@@ -173,44 +168,37 @@
 									<div class="form-group">
 									  <label class="col-md-2 control-label" for="passportNumber">香港身份證</label>  
 									  <div class="col-md-10">
-									  <input id="file-0a" class="file" type="file"/><br/>
-										
+										<input type="file" name="helper_hkid" size="40" class="file" data-show-preview="false" data-show-upload="false"/><br/>
 									  </div>
 									
 									  <label class="col-md-2 control-label" for="passportNumber">護照(相片資料頁)</label>  
 									  <div class="col-md-10">
-									  <input id="file-0a" class="file" type="file"/><br/>
-										
+										<input type="file" name="helper_visa" size="40" class="file" data-show-preview="false" data-show-upload="false"/><br/>
 									  </div>
 									
 									  <label class="col-md-2 control-label" for="passportNumber">護照(簽証生效日期)</label>  
 									  <div class="col-md-10">
-									  <input id="file-0a" class="file" type="file"/><br/>
-										
+										<input type="file" name="helper_visa_date" size="40" class="file" data-show-preview="false" data-show-upload="false"/><br/>
 									  </div>
 									
 									  <label class="col-md-2 control-label" for="passportNumber">護照(簽証屆滿日期)</label>  
 									  <div class="col-md-10">
-									  <input id="file-0a" class="file" type="file"/><br/>
-										
+										<input type="file" name="helper_visa_due" size="40" class="file" data-show-preview="false" data-show-upload="false"/><br/>
 									  </div>
 									  
 									  <label class="col-md-2 control-label" for="passportNumber">合約(ID407)</label>  
 									  <div class="col-md-10">
-									  <input id="file-0a" class="file" type="file"/><br/>
-										
+										<input type="file" name="helper_contract" size="40" class="file" data-show-preview="false" data-show-upload="false"/><br/>
 									  </div>
 									  
 									  <label class="col-md-2 control-label" for="passportNumber">驗身報告</label>  
 									  <div class="col-md-10">
-									  <input id="file-0a" class="file" type="file"/><br/>
-										
+										<input type="file" name="helper_checkup" size="40" class="file" data-show-preview="false" data-show-upload="false"/><br/>
 									  </div>
 									  
 									  <label class="col-md-2 control-label" for="passportNumber">其它</label>  
 									  <div class="col-md-10">
-									  <input id="file-0a" class="file" type="file"/><br/>
-										
+										<input type="file" name="helper_other" size="40" class="file" data-show-preview="false" data-show-upload="false"/><br/>
 									  </div>
 									</div>
 								</fieldset><br/><br/>
