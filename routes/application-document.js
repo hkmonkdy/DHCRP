@@ -63,8 +63,6 @@ function saveDocuments(req, controllerMongoDB, fs, next){
 		});
 	  });
 	}
-	
-	next();
 }
 
 function initApplication(){
