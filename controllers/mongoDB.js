@@ -31,10 +31,11 @@ module.exports = {
 				dbApplication.statusId = submittedApplication.statusId;
 				dbApplication.employer = submittedApplication.employer;
 				dbApplication.domesticHelper = submittedApplication.domesticHelper;
+				dbApplication.documents = submittedApplication.documents;
 				dbApplication.updateOn = Date.now();
 
 				dbApplication.save(function (err) {
-					return next(err);
+					return next(err, dbApplication);
 				});
 			});
 		}else{
@@ -75,7 +76,6 @@ module.exports = {
 	},
 	
 	testin: function (read_stream, filename) {
-		console.log('open');
 		var gfs = Grid(conn.db);
 		
 		var writestream = gfs.createWriteStream({

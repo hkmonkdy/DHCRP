@@ -152,8 +152,8 @@
 							<div style="width: 646px; height: 79px; background-image: url('/images/step2.png');"></div>						
 							<br/><h3>步驟二 > 傭工資料 <span style="font-size: 12px; color: #BBB">(請以英文填寫全部資料)</span></h3><br/>
 							
-							<form class="form-horizontal" action="/application-step2-next" method="post">
-								<input id="applicationId" name="applicationId" type="hidden" value="<%= applicationId %>"/>
+							<form class="form-horizontal" action="/application-step2" method="post">
+								<input id="applicationId" name="applicationId" type="hidden" value="<%= application._id %>"/>
 							
 								<fieldset>
 									<!-- Form Name -->
@@ -163,26 +163,22 @@
 									<div class="form-group">
 									  <label class="col-md-2 control-label" for="firstName">姓名</label>  
 									  <div class="col-md-2">
-									  <input id="firstName" name="firstName" type="text" placeholder="First Name*" class="form-control input-md" required="">
-										
+										<input id="firstName" name="firstName" type="text" placeholder="First Name*" class="form-control input-md" required="" value="<%= application.domesticHelper.firstName %>"/>
 									  </div>
 									  
 									  <div class="col-md-2">
-									  <input id="middleName" name="middleName" type="text" placeholder="Middle Name" class="form-control input-md">
-										
+										<input id="middleName" name="middleName" type="text" placeholder="Middle Name" class="form-control input-md" value="<%= application.domesticHelper.firstName %>"/>
 									  </div>
 									  
 									  <div class="col-md-2">
-									  <input id="lastName" name="lastName" type="text" placeholder="Last Name" class="form-control input-md">
-										
+										<input id="lastName" name="lastName" type="text" placeholder="Last Name" class="form-control input-md" value="<%= application.domesticHelper.lastName %>"/>
 									  </div>
 									</div>
 									
 									<div class="form-group">
 									  <label class="col-md-2 control-label" for="DOB">出生日期</label>  
 									  <div class="col-md-4">
-									  <input id="DOB" name="DOB" type="text" placeholder="" class="form-control input-md">
-										
+										<input id="DOB" name="DOB" type="text" placeholder="" class="form-control input-md" value="<%= application.domesticHelper.DOB %>"/>
 									  </div>
 									  
 									  <label class="col-md-2 control-label" for="gender">性別</label>
@@ -198,14 +194,13 @@
 									<div class="form-group">
 									  <label class="col-md-2 control-label" for="birthPlace">出生地</label>  
 									  <div class="col-md-4">
-									  <input id="birthPlace" name="birthPlace" type="text" placeholder="" class="form-control input-md">
-										
+										<input id="birthPlace" name="birthPlace" type="text" placeholder="" class="form-control input-md" value="<%= application.domesticHelper.birthPlace %>"/>
 									  </div>
 									  
 									  <label class="col-md-2 control-label" for="maritalStatus">婚姻狀況</label>
 									  <div class="col-md-4">
 										<div class="select-wrapper">
-											<select id="maritalStatus" name="maritalStatus">
+											<select id="maritalStatus" name="maritalStatus" value="<%= application.domesticHelper.firstName %>">
 											  <option value="1">Option one</option>
 											  <option value="2">Option two</option>
 											</select>
@@ -216,66 +211,57 @@
 									<div class="form-group">
 									  <label class="col-md-2 control-label" for="HKID">身份證號碼*</label>  
 									  <div class="col-md-4">
-									  <input id="HKID" name="HKID" type="text" placeholder="" class="form-control input-md" required="">
-										
+										<input id="HKID" name="HKID" type="text" placeholder="" class="form-control input-md" required="" value="<%= application.domesticHelper.HKID %>"/>
 									  </div>
 									  
 									  <label class="col-md-2 control-label" for="HKIDIssueDate">身份證簽發日期</label>  
 									  <div class="col-md-4">
-									  <input id="HKIDIssueDate" name="HKIDIssueDate" type="text" placeholder="" class="form-control input-md">
-										
+										<input id="HKIDIssueDate" name="HKIDIssueDate" type="text" placeholder="" class="form-control input-md" value="<%= application.domesticHelper.HKIDIssueDate %>"/>
 									  </div>
 									</div>
 
 									<div class="form-group">
 									  <label class="col-md-2 control-label" for="nationality">國籍</label>  
 									  <div class="col-md-4">
-									  <input id="nationality" name="nationality" type="text" placeholder="" class="form-control input-md">
-										
+										<input id="nationality" name="nationality" type="text" placeholder="" class="form-control input-md" value="<%= application.domesticHelper.nationality %>"/>
 									  </div>
 									</div>
 
 									<div class="form-group">
 									  <label class="col-md-2 control-label" for="address1">原居住址</label>  
 									  <div class="col-md-10">
-									  <input id="address1" name="address1" type="text" placeholder="地址 1" class="form-control input-md">
-										
+										<input id="address1" name="address1" type="text" placeholder="地址 1" class="form-control input-md" value="<%= application.domesticHelper.address1 %>"/>
 									  </div>
 									</div>
 									
 									<div class="form-group">
 									  <label class="col-md-2 control-label"></label>  
 									  <div class="col-md-10">
-										<input id="address2" name="address2" type="search" placeholder="地址 2" class="form-control input-md">
-										
+										<input id="address2" name="address2" type="search" placeholder="地址 2" class="form-control input-md" value="<%= application.domesticHelper.address2 %>"/>
 									  </div>
 									</div>
 
 									<div class="form-group">
 									  <label class="col-md-2 control-label" for="contactNumber">電話號碼</label>  
 									  <div class="col-md-4">
-									  <input id="contactNumber" name="contactNumber" type="text" placeholder="" class="form-control input-md">
-										
+										<input id="contactNumber" name="contactNumber" type="text" placeholder="" class="form-control input-md" value="<%= application.domesticHelper.contactNumber %>"/>
 									  </div>
 									  
 									  <label class="col-md-2 control-label" for="email">電郵地址</label>  
 									  <div class="col-md-4">
-									  <input id="email" name="email" type="text" placeholder="" class="form-control input-md">
-										
+										<input id="email" name="email" type="text" placeholder="" class="form-control input-md" value="<%= application.domesticHelper.email %>"/>
 									  </div>
 									</div>
 
 									<div class="form-group">
 									  <label class="col-md-2 control-label" for="contactPerson">國家親人姓名</label>  
 									  <div class="col-md-4">
-									  <input id="contactPerson" name="contactPerson" type="text" placeholder="" class="form-control input-md">
-										
+										<input id="contactPerson" name="contactPerson" type="text" placeholder="" class="form-control input-md" value="<%= application.domesticHelper.contactPerson %>"/>
 									  </div>
 									  
 									  <label class="col-md-2 control-label" for="contactPersonNumber">國家親人電話</label>  
 									  <div class="col-md-4">
-									  <input id="contactPersonNumber" name="contactPersonNumber" type="text" placeholder="" class="form-control input-md">
-										
+										<input id="contactPersonNumber" name="contactPersonNumber" type="text" placeholder="" class="form-control input-md" value="<%= application.domesticHelper.contactPersonNumber %>"/>
 									  </div>
 									</div>
 								</fieldset><br/>
@@ -288,7 +274,7 @@
 									  <label class="col-md-2 control-label" for="selectbasic">渡假後安排</label>
 									  <div class="col-md-4">
 										<div class="select-wrapper">
-											<select id="selectbasic" name="selectbasic" class="form-control">
+											<select id="selectbasic" name="selectbasic" class="form-control" value="<%= application.domesticHelper.selectbasic %>">
 											  <option value="1">在履行新合約前返回原居地渡假</option>
 											  <option value="2">雙方同意把假期押後不超過一年</option>
 											</select>
@@ -297,8 +283,7 @@
 									  
 									  <label class="col-md-2 control-label" for="reason">原因</label>  
 									  <div class="col-md-4">
-									  <input id="reason" name="reason" type="text" placeholder="" class="form-control input-md">
-										
+										<input id="reason" name="reason" type="text" placeholder="" class="form-control input-md" value="<%= application.domesticHelper.reason %>"/>
 									  </div>
 									</div>
 
@@ -306,14 +291,12 @@
 									<div class="form-group">
 									  <label class="col-md-2 control-label" for="tripStartDate">去程日期</label>  
 									  <div class="col-md-4">
-									  <input id="tripStartDate" name="tripStartDate" type="text" placeholder="" class="form-control input-md">
-										
+										<input id="tripStartDate" name="tripStartDate" type="text" placeholder="" class="form-control input-md" value="<%= application.domesticHelper.tripStartDate %>"/>
 									  </div>
 									  
 									  <label class="col-md-2 control-label" for="tripEndDate">回程日期</label>  
 									  <div class="col-md-4">
-									  <input id="tripEndDate" name="tripEndDate" type="text" placeholder="" class="form-control input-md">
-										
+										<input id="tripEndDate" name="tripEndDate" type="text" placeholder="" class="form-control input-md" value="<%= application.domesticHelper.tripEndDate %>"/>
 									  </div>
 									</div>
 								</fieldset><br/>
@@ -325,42 +308,36 @@
 									<div class="form-group">
 									  <label class="col-md-2 control-label" for="passportNumber">護照號碼</label>  
 									  <div class="col-md-4">
-									  <input id="passportNumber" name="passportNumber" type="text" placeholder="" class="form-control input-md">
-										
+										<input id="passportNumber" name="passportNumber" type="text" placeholder="" class="form-control input-md" value="<%= application.domesticHelper.passportNumber %>"/>
 									  </div>
 									  
 									  <label class="col-md-2 control-label" for="issueCountry">簽發地點</label>  
 									  <div class="col-md-4">
-									  <input id="issueCountry" name="issueCountry" type="text" placeholder="" class="form-control input-md">
-										
+										<input id="issueCountry" name="issueCountry" type="text" placeholder="" class="form-control input-md" value="<%= application.domesticHelper.issueCountry %>"/>
 									  </div>
 									</div>
 
 									<div class="form-group">
 									  <label class="col-md-2 control-label" for="issueDate">簽發日期</label>  
 									  <div class="col-md-4">
-									  <input id="issueDate" name="issueDate" type="text" placeholder="" class="form-control input-md">
-										
+										<input id="issueDate" name="issueDate" type="text" placeholder="" class="form-control input-md" value="<%= application.domesticHelper.issueDate %>"/>
 									  </div>
 									  
 									  <label class="col-md-2 control-label" for="dueDate">屆滿日期</label>  
 									  <div class="col-md-4">
-									  <input id="dueDate" name="dueDate" type="text" placeholder="" class="form-control input-md">
-										
+										<input id="dueDate" name="dueDate" type="text" placeholder="" class="form-control input-md" value="<%= application.domesticHelper.dueDate %>"/>
 									  </div>
 									</div>
 
 									<div class="form-group">
 									  <label class="col-md-2 control-label" for="VISAStartDate">工作簽証生效日期</label>  
 									  <div class="col-md-4">
-									  <input id="VISAStartDate" name="VISAStartDate" type="text" placeholder="" class="form-control input-md">
-										
+										<input id="VISAStartDate" name="VISAStartDate" type="text" placeholder="" class="form-control input-md" value="<%= application.domesticHelper.VISAStartDate %>"/>
 									  </div>
 									  
 									  <label class="col-md-2 control-label" for="VISADueDate">工作簽証屆滿日期</label>  
 									  <div class="col-md-4">
-									  <input id="VISADueDate" name="VISADueDate" type="text" placeholder="" class="form-control input-md">
-										
+										<input id="VISADueDate" name="VISADueDate" type="text" placeholder="" class="form-control input-md" value="<%= application.domesticHelper.VISADueDate %>"/>
 									  </div>
 									</div>
 								</fieldset><br/><br/>
@@ -368,8 +345,8 @@
 								<div class="row uniform">
 									<div class="12u">
 										<ul class="actions">
-											<!--<li><input type="button" value="上一步" onclick="parent.location='application-step1'"/></li>-->
-											<li><input type="submit" class="special" value="下一步"/></li>
+											<li><input type="submit" value="上一步" id="prevBtn" name="prevBtn"/></li>
+											<li><input type="submit" class="special" value="下一步" id="nextBtn" name="nextBtn"/></li>
 										</ul>
 									</div>
 								</div>

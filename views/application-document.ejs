@@ -126,8 +126,8 @@
 							<div style="width: 646px; height: 79px; background-image: url('/images/step3.png');"></div>						
 							<br/><h3>步驟三 > 上載文件</h3><br/>
 							
-							<form action="/application-step3-next" enctype="multipart/form-data" method="post" class="form-horizontal">
-								<input id="applicationId" name="applicationId" type="hidden" value="5586e91a18cc1b7816498f16"/>
+							<form action="/application-step3" enctype="multipart/form-data" method="post" class="form-horizontal">
+								<input id="applicationId" name="applicationId" type="hidden" value="<%= application._id %>"/>
 							
 								<fieldset>
 									<!-- Form Name -->
@@ -206,8 +206,8 @@
 								<div class="row uniform">
 									<div class="12u">
 										<ul class="actions">
-											<!--<li><input type="button" value="上一步" onclick="parent.location='application-step2'"/></li>-->
-											<li><input type="submit" class="special" value="遞交"/></li>
+											<li><input type="submit" value="上一步" id="prevBtn" name="prevBtn"/></li>
+											<li><input type="submit" class="special" value="遞交" id="nextBtn" name="nextBtn"/></li>
 										</ul>
 									</div>
 								</div>

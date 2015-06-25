@@ -1,8 +1,21 @@
-exports.get = function(res){
-  res.render('../views/application-employer', { applicationId : null });
+exports.get = function(req, res, controllerMongoDB){
+  var applicationId = req.query.applicationId;
+  
+  if(applicationId){
+	controllerMongoDB.getApplication(applicationId, function(err, application){
+	  if(err){
+		console.log(err);
+	  }else{
+		res.render('../views/application-employer', { application : application });
+	  }
+	});
+  }else{
+	var application = initApplication();
+	res.render('../views/application-employer', { application : application });
+  }
 };
 
-exports.next = function(req, res, controllerMongoDB){
+exports.post = function(req, res, controllerMongoDB){
   var applicationId = req.body.applicationId;
 
   //---------- Employer information -----------
@@ -74,11 +87,11 @@ exports.next = function(req, res, controllerMongoDB){
   //---------- Employed DH information[END] -----------
   
   if(applicationId){
-	controllerMongoDB.getApplication(application, function(err, application){
+	controllerMongoDB.getApplication(applicationId, function(err, application){
 	  application.employer = employer;
 	
 	  controllerMongoDB.saveApplication(application, function(err, application){
-		res.render('../views/application-helper', { applicationId : application._id });
+		res.render('../views/application-helper', { application : application });
 	  });
 	});
   }else{
@@ -86,7 +99,14 @@ exports.next = function(req, res, controllerMongoDB){
 	application.employer = employer;
 	
 	controllerMongoDB.saveApplication(application, function(err, application){
-	  res.render('../views/application-helper', { applicationId : application._id });
+	  res.render('../views/application-helper', { application : application });
 	});
   }
 };
+
+function initApplication(){
+  var application = {};
+  application.employer = {};
+  
+  return application;
+}

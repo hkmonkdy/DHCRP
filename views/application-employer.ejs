@@ -136,8 +136,8 @@
 							<div style="width: 646px; height: 79px; background-image: url('/images/step1.png');"></div>						
 							<br/><h3>步驟一 > 僱主資料 <span style="font-size: 12px; color: #BBB">(請以英文填寫全部資料)</span></h3><br/>
 							
-							<form class="form-horizontal" action="/application-step1-next" method="post">
-								<input id="applicationId" name="applicationId" type="hidden" value="<%= applicationId %>"/>
+							<form class="form-horizontal" action="/application-step1" method="post">
+								<input id="applicationId" name="applicationId" type="hidden" value="<%= application._id %>"/>
 							
 								<fieldset>
 									<!-- Form Name -->
@@ -147,27 +147,23 @@
 									<div class="form-group">
 									  <label class="col-md-2 control-label" for="firstName">姓名(英)</label>  
 									  <div class="col-md-2">
-									  <input id="firstName" name="firstName" type="text" placeholder="名*" class="form-control input-md" required="">
-										
+										<input id="firstName" name="firstName" type="text" placeholder="名*" class="form-control input-md" required="" value="<%= application.employer.firstName %>"/>
 									  </div>
 									  
 									  <div class="col-md-2">
-									  <input id="lastName" name="lastName" type="text" placeholder="姓*" class="form-control input-md" required="">
-										
+										<input id="lastName" name="lastName" type="text" placeholder="姓*" class="form-control input-md" required="" value="<%= application.employer.lastName %>"/>
 									  </div>
 									  
 									  <label class="col-md-2 control-label" for="chineseName">姓名(中)</label>  
 									  <div class="col-md-3">
-									  <input id="chineseName" name="chineseName" type="text" placeholder="" class="form-control input-md">
-										
+										<input id="chineseName" name="chineseName" type="text" placeholder="" class="form-control input-md" value="<%= application.employer.chineseName %>"/>
 									  </div>
 									</div>
 
 									<div class="form-group">
 									  <label class="col-md-2 control-label" for="DOB">出生日期</label>  
 									  <div class="col-md-4">
-									  <input id="DOB" name="DOB" type="text" placeholder="" class="form-control input-md">
-									  
+										<input id="DOB" name="DOB" type="text" placeholder="" class="form-control input-md" value="<%= application.employer.DOB %>"/>
 									  </div>
 									
 									  <label class="col-md-2 control-label" for="gender">性別</label>
@@ -194,28 +190,24 @@
 									<div class="form-group">
 									  <label class="col-md-2 control-label" for="HKID">身份證號碼</label>  
 									  <div class="col-md-4">
-									  <input id="HKID" name="HKID" type="text" placeholder="" class="form-control input-md">
-										
+										<input id="HKID" name="HKID" type="text" placeholder="" class="form-control input-md" value="<%= application.employer.HKID %>"/>
 									  </div>
 									  
 									  <label class="col-md-2 control-label" for="passportNumber">旅行證件號碼</label>  
 									  <div class="col-md-4">
-									  <input id="passportNumber" name="passportNumber" type="text" placeholder="" class="form-control input-md">
-										
+										<input id="passportNumber" name="passportNumber" type="text" placeholder="" class="form-control input-md" value="<%= application.employer.passportNumber %>"/>
 									  </div>
 									</div>
 
 									<div class="form-group">
 									  <label class="col-md-2 control-label" for="nationality">國籍</label>  
 									  <div class="col-md-4">
-									  <input id="nationality" name="nationality" type="text" placeholder="" class="form-control input-md">
-										
+										<input id="nationality" name="nationality" type="text" placeholder="" class="form-control input-md" value="<%= application.employer.nationality %>"/>
 									  </div>
 									  
 									  <label class="col-md-2 control-label" for="occupation">職業</label>  
 									  <div class="col-md-4">
-									  <input id="occupation" name="occupation" type="text" placeholder="" class="form-control input-md">
-										
+										<input id="occupation" name="occupation" type="text" placeholder="" class="form-control input-md" value="<%= application.employer.occupation %>"/>
 									  </div>
 									</div>
 
@@ -223,8 +215,7 @@
 									<div class="form-group">
 									  <label class="col-md-2 control-label" for="address1">地址</label>  
 									  <div class="col-md-10">
-									  <input id="address1" name="address1" type="text" placeholder="地址 1" class="form-control input-md">
-										
+										<input id="address1" name="address1" type="text" placeholder="地址 1" class="form-control input-md" value="<%= application.employer.address1 %>"/>
 									  </div>
 									</div>
 
@@ -232,8 +223,7 @@
 									<div class="form-group">
 									  <label class="col-md-2 control-label" for="address2"></label>  
 									  <div class="col-md-10">
-									  <input id="address2" name="address2" type="text" placeholder="地址 2" class="form-control input-md">
-										
+										<input id="address2" name="address2" type="text" placeholder="地址 2" class="form-control input-md" value="<%= application.employer.address2 %>"/>
 									  </div>
 									</div>
 
@@ -241,14 +231,12 @@
 									<div class="form-group">
 									  <label class="col-md-2 control-label" for="contactNumber">聯絡電話號碼*</label>  
 									  <div class="col-md-4">
-									  <input id="contactNumber" name="contactNumber" type="text" placeholder="" class="form-control input-md" required="">
-										
+										<input id="contactNumber" name="contactNumber" type="text" placeholder="" class="form-control input-md" required="" value="<%= application.employer.contactNumber %>"/>
 									  </div>
 									  
 									  <label class="col-md-2 control-label" for="homeNumber">住宅電話號碼</label>  
 									  <div class="col-md-4">
-									  <input id="homeNumber" name="homeNumber" type="text" placeholder="" class="form-control input-md">
-										
+										<input id="homeNumber" name="homeNumber" type="text" placeholder="" class="form-control input-md" value="<%= application.employer.homeNumber %>"/>
 									  </div>
 									</div>
 
@@ -256,8 +244,7 @@
 									<div class="form-group">
 									  <label class="col-md-2 control-label" for="email">電郵地址*</label>  
 									  <div class="col-md-4">
-									  <input id="email" name="email" type="text" placeholder="" class="form-control input-md" required="">
-										
+										<input id="email" name="email" type="text" placeholder="" class="form-control input-md" required="" value="<%= application.employer.email %>"/>
 									  </div>
 									</div>
 								</fieldset><br/>
@@ -278,48 +265,41 @@
 									  
 									  <label class="col-md-2 control-label" for="houseHoldIncome">每月家庭入息</label>  
 									  <div class="col-md-4">
-									  <input id="houseHoldIncome" name="houseHoldIncome" type="text" placeholder="HKD" class="form-control input-md">
-										
+										<input id="houseHoldIncome" name="houseHoldIncome" type="text" placeholder="HKD" class="form-control input-md" value="<%= application.employer.houseHoldIncome %>"/>
 									  </div>
 									</div>
 
 									<div class="form-group">
 									  <label class="col-md-2 control-label" for="numOfAdult">成人數目</label>  
 									  <div class="col-md-1">
-									  <input id="numOfAdult" name="numOfAdult" type="text" placeholder="" class="form-control input-md">
-										
+										<input id="numOfAdult" name="numOfAdult" type="text" placeholder="" class="form-control input-md" value="<%= application.employer.numOfAdult %>"/>
 									  </div>
 									  
 									  <label class="col-md-3 control-label" for="numOfChild">小童數目(5-18歲)</label>  
 									  <div class="col-md-1">
-									  <input id="numOfChild" name="numOfChild" type="text" placeholder="" class="form-control input-md">
-										
+										<input id="numOfChild" name="numOfChild" type="text" placeholder="" class="form-control input-md" value="<%= application.employer.numOfChild %>"/>
 									  </div>
 									  
 									  <label class="col-md-3 control-label" for="numOfBaby">小童數目(0~5歲)</label>  
 									  <div class="col-md-1">
-									  <input id="numOfBaby" name="numOfBaby" type="text" placeholder="" class="form-control input-md">
-										
+										<input id="numOfBaby" name="numOfBaby" type="text" placeholder="" class="form-control input-md" value="<%= application.employer.numOfBaby %>"/>
 									  </div>
 									</div>
 
 									<div class="form-group">
 									  <label class="col-md-2 control-label" for="numOfPreBorn">預產嬰兒數目</label>  
 									  <div class="col-md-1">
-									  <input id="numOfPreBorn" name="numOfPreBorn" type="text" placeholder="" class="form-control input-md">
-										
+										<input id="numOfPreBorn" name="numOfPreBorn" type="text" placeholder="" class="form-control input-md" value="<%= application.employer.numOfPreBorn %>"/>
 									  </div>
 									  
 									  <label class="col-md-3 control-label" for="numOfFamily">家庭成員總數</label>  
 									  <div class="col-md-1">
-									  <input id="numOfFamily" name="numOfFamily" type="text" placeholder="" class="form-control input-md">
-										
+										<input id="numOfFamily" name="numOfFamily" type="text" placeholder="" class="form-control input-md" value="<%= application.employer.numOfFamily %>"/>
 									  </div>
 									  
 									  <label class="col-md-3 control-label" for="numOfSpecialCare">其中特別照顧人士數目</label>  
 									  <div class="col-md-1">
-									  <input id="numOfSpecialCare" name="numOfSpecialCare" type="text" placeholder="" class="form-control input-md">
-										
+										<input id="numOfSpecialCare" name="numOfSpecialCare" type="text" placeholder="" class="form-control input-md" value="<%= application.employer.numOfSpecialCare %>"/>
 									  </div>
 									</div><br/>
 									
@@ -362,8 +342,7 @@
 									<div class="form-group">
 									  <label class="col-md-2 control-label" for="numOfDH">現時僱用家傭總數</label>  
 									  <div class="col-md-4">
-									  <input id="numOfDH" name="numOfDH" type="text" placeholder="" class="form-control input-md">
-										
+										<input id="numOfDH" name="numOfDH" type="text" placeholder="" class="form-control input-md" value="<%= application.employer.numOfDH %>"/>
 									  </div>
 									</div><br/>
 									
@@ -407,7 +386,7 @@
 									  <label class="col-md-2 control-label" for="apartmentType">住宅類型</label>
 									  <div class="col-md-2">
 										<div class="select-wrapper">
-											<select id="apartmentType" name="apartmentType">
+											<select id="apartmentType" name="apartmentType" value="<%= application.employer.apartmentType %>">
 											  <option value="1">Option one</option>
 											  <option value="2">Option two</option>
 											</select>
@@ -416,14 +395,12 @@
 									  
 									  <label class="col-md-2 control-label" for="apartmentArea">住宅面積</label>  
 									  <div class="col-md-2">
-									  <input id="apartmentArea" name="apartmentArea" type="text" placeholder="平方尺" class="form-control input-md">
-										
+										<input id="apartmentArea" name="apartmentArea" type="text" placeholder="平方尺" class="form-control input-md" value="<%= application.employer.apartmentArea %>"/>
 									  </div>
 									  
 									  <label class="col-md-2 control-label" for="numOfRoom">睡房總數目</label>  
 									  <div class="col-md-2">
-									  <input id="numOfRoom" name="numOfRoom" type="text" placeholder="" class="form-control input-md">
-										
+										<input id="numOfRoom" name="numOfRoom" type="text" placeholder="" class="form-control input-md" value="<%= application.employer.numOfRoom %>"/>
 									  </div>
 									</div>
 
@@ -439,8 +416,7 @@
 									  
 									  <label class="col-md-2 control-label" for="DHRoomArea">工人房間面積</label>  
 									  <div class="col-md-2">
-									  <input id="DHRoomArea" name="DHRoomArea" type="text" placeholder="平方尺" class="form-control input-md">
-										
+										<input id="DHRoomArea" name="DHRoomArea" type="text" placeholder="平方尺" class="form-control input-md" value="<%= application.employer.DHRoomArea %>"/>
 									  </div>
 									</div>
 								</fieldset><br/><br/>

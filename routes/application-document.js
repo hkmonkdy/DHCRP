@@ -1,23 +1,33 @@
-exports.get = function(res){
-  res.render('../views/application-document', { applicationId : null });
+exports.get = function(req, res, controllerMongoDB){
+  var applicationId = req.query.applicationId;
+  
+  if(applicationId){
+	controllerMongoDB.getApplication(applicationId, function(err, application){
+	  if(err){
+		console.log(err);
+	  }else{
+		res.render('../views/application-document', { application : application });
+	  }
+	});
+  }else{
+	var application = initApplication();
+	res.render('../views/application-employer', { application : application });
+  }
 };
 
-exports.next = function(req, res, controllerMongoDB, fs){
-  saveDocuments(req, controllerMongoDB, fs, function(applicationId){
-    //res.render('../views/application-confirmation', { applicationId : applicationId });
-  });
-};
-
-exports.previous = function(req, res, controllerMongoDB){
-  saveDocuments(req, controllerMongoDB, function(applicationId){
-    res.render('../views/application-helper', { applicationId : applicationId });
+exports.post = function(req, res, controllerMongoDB, fs){
+  saveDocuments(req, controllerMongoDB, fs, function(application){
+	if(req.body.prevBtn){
+	  res.render('../views/application-helper', { application : application });
+	}else{
+	  res.render('../views/application-confirmation', { application : application });
+	}
   });
 };
 
 function saveDocuments(req, controllerMongoDB, fs, next){
 	var applicationId = req.body.applicationId;
-	console.log("--------------------------------------");
-	console.log(applicationId);
+	
 	if(applicationId){
 	  controllerMongoDB.getApplication(applicationId, function(err, application){
 		application.documents = [];
@@ -35,25 +45,31 @@ function saveDocuments(req, controllerMongoDB, fs, next){
 			controllerMongoDB.testin(read_stream, filename);
 			
 			application.documents[count] = {};
+			application.documents[count].documentType = key;
 			application.documents[count].originalName = file.originalname;
 			application.documents[count].fileName = file.name;
 			application.documents[count].mimeType = file.mimetype;
 			
 			count++;
 		}
-		
-		
 	
 		controllerMongoDB.saveApplication(application, function(err){
 		  if(err){
-			console.log(asdasda);
 			console.log(err);
 		  }else{
-			next(applicationId);
+			next(application);
+			return;
 		  }
 		});
 	  });
 	}
 	
 	next();
+}
+
+function initApplication(){
+  var application = {};
+  application.employer = {};
+  
+  return application;
 }

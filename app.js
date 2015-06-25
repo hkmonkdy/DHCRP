@@ -59,42 +59,31 @@ var server = app.listen(app.get('port'), function(){
 });
 
 
-app.use('/application-step1', function(req, res) {
-	routeApplicationEmployer.get(res);
+app.get('/application-step1', function(req, res) {
+	routeApplicationEmployer.get(req, res, controllerMongoDB);
 });
-app.use('/application-step2', function(req, res) {
-	routeApplicationHelper.get(res);
+app.get('/application-step2', function(req, res) {
+	routeApplicationHelper.get(req, res, controllerMongoDB);
 });
-app.use('/application-step3', function(req, res) {
-	routeApplicationDocument.get(res);
+app.get('/application-step3', function(req, res) {
+	routeApplicationDocument.get(req, res, controllerMongoDB);
 });
-app.use('/application-step4', function(req, res) {
-	routeApplicationConfirmation.get(res);
-});
-
-
-app.post('/application-step1-next', function(req, res) {
-	routeApplicationEmployer.next(req, res, controllerMongoDB);
-});
-app.post('/application-step2-next', function(req, res) {
-	routeApplicationHelper.next(req, res, controllerMongoDB);
-});
-app.post('/application-step3-next', function(req, res) {
-	routeApplicationDocument.next(req, res, controllerMongoDB, fs);
-});
-app.post('/application-step4-next', function(req, res) {
-	routeApplicationConfirmation.next(req, res, controllerMongoDB);
+app.get('/application-step4', function(req, res) {
+	routeApplicationConfirmation.get(req, res, controllerMongoDB);
 });
 
 
-app.post('/application-step2-previous', function(req, res) {
-	routeApplicationHelper.previous(req, res, controllerMongoDB);
+app.post('/application-step1', function(req, res) {
+	routeApplicationEmployer.post(req, res, controllerMongoDB);
 });
-app.post('/application-step3-previous', function(req, res) {
-	routeApplicationDocument.previous(req, res, controllerMongoDB);
+app.post('/application-step2', function(req, res) {
+	routeApplicationHelper.post(req, res, controllerMongoDB);
 });
-app.post('/application-step4-previous', function(req, res) {
-	routeApplicationConfirmation.previous(req, res, controllerMongoDB);
+app.post('/application-step3', function(req, res) {
+	routeApplicationDocument.post(req, res, controllerMongoDB, fs);
+});
+app.post('/application-step4', function(req, res) {
+	routeApplicationConfirmation.post(req, res, controllerMongoDB);
 });
 
 

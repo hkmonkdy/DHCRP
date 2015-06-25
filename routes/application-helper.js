@@ -1,16 +1,27 @@
-exports.get = function(res){
-  res.render('../views/application-helper', { applicationId : null });
+exports.get = function(req, res, controllerMongoDB){
+  var applicationId = req.query.applicationId;
+  
+  if(applicationId){
+	controllerMongoDB.getApplication(applicationId, function(err, application){
+	  if(err){
+		console.log(err);
+	  }else{
+		res.render('../views/application-helper', { application : application });
+	  }
+	});
+  }else{
+	var application = initApplication();
+	res.render('../views/application-employer', { application : application });
+  }
 };
 
-exports.next = function(req, res, controllerMongoDB){
-  saveDomesticHelper(req, controllerMongoDB, function(applicationId){
-    res.render('../views/application-document', { applicationId : applicationId });
-  });
-};
-
-exports.previous = function(req, res, controllerMongoDB){
-  saveDomesticHelper(req, controllerMongoDB, function(applicationId){
-    res.render('../views/application-employer', { applicationId : applicationId });
+exports.post = function(req, res, controllerMongoDB){	
+  saveDomesticHelper(req, controllerMongoDB, function(application){
+	if(req.body.prevBtn){
+	  res.render('../views/application-employer', { application : application });
+	}else{
+	  res.render('../views/application-document', { application : application });
+	}
   });
 };
 
@@ -56,9 +67,16 @@ function saveDomesticHelper(req, controllerMongoDB, next){
 		if(err){
 		  console.log(err);
 		}else{
-		  next(applicationId);
+		  next(application);
 		}
 	  });
 	});
   }
+}
+
+function initApplication(){
+  var application = {};
+  application.employer = {};
+  
+  return application;
 }
