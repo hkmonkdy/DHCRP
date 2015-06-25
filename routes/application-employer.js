@@ -91,6 +91,10 @@ exports.post = function(req, res, controllerMongoDB){
 	  application.employer = employer;
 	
 	  controllerMongoDB.saveApplication(application, function(err, application){
+		if(!application.domesticHelper){
+			application.domesticHelper = {};
+		}
+		  
 		res.render('../views/application-helper', { application : application });
 	  });
 	});
@@ -99,6 +103,8 @@ exports.post = function(req, res, controllerMongoDB){
 	application.employer = employer;
 	
 	controllerMongoDB.saveApplication(application, function(err, application){
+	  application.domesticHelper = {};
+		
 	  res.render('../views/application-helper', { application : application });
 	});
   }
